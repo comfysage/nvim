@@ -18,7 +18,8 @@ function M.setup(config)
   local group_id = vim.api.nvim_create_augroup("config:" .. CONFIG_MODULE, {})
 
   -- preload keymaps module
-  require 'keymaps'.setup()
+  local status, keymaps = pcall (require, 'keymaps' )
+  if status then keymaps.setup() end
 
   for _, spec in ipairs(config.modules) do
     ---@type Module
