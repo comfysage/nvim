@@ -1,11 +1,9 @@
 return {
-  {
+  Spec.colorscheme {
     'AlexvZyl/nordic.nvim',
-    lazy = true,
   },
-  {
+  Spec.colorscheme {
     'shaunsingh/nord.nvim',
-    lazy = true,
     enabled = false,
     config = function()
       vim.g.nord_borders = false

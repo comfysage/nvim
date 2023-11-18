@@ -1,4 +1,4 @@
-return {
+return Spec.colorscheme {
   'crispybaccoon/aurora',
   dir = ENV('KITCHEN') .. '/pan/aurora',
   opts = {

@@ -1,5 +1,5 @@
-return {
-  'rebelot/kanagawa.nvim', lazy = true,
+return Spec.colorscheme {
+  'rebelot/kanagawa.nvim',
   config = function()
     local default_colors = require 'kanagawa.colors'.setup()
 

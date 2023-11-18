@@ -1,4 +1,5 @@
 require 'comfy.globals'
+require 'comfy.plugin.globals'
 
 local M = {}
 
