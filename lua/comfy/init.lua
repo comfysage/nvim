@@ -74,7 +74,9 @@ function M.setup(config)
 
   if config.transparent_fn then
     _G.transparent_background_fn = config.transparent_fn
-    vim.api.nvim_create_user_command('ToggleTransparentBG', toggle_transparent_background, {})
+    vim.api.nvim_create_user_command('ToggleTransparentBG', function ()
+      _G.toggle_transparent_background()
+    end, {})
   end
 
   toggle_transparent_background(config.transparent_background)
