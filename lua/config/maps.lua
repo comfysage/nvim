@@ -197,7 +197,6 @@ if status then
     group = 'Telescope',
     "[F]ind [H]elp tag"
   }
-  keymaps.normal['<space>fm'] = { require 'keymaps.ui'.telescope, group = 'Telescope', 'Find Keymaps' }
 
   keymaps.normal["<C-t>"] = {
     function() require('telescope.builtin').colorscheme() end,
