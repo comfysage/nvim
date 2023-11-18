@@ -9,16 +9,16 @@ return Spec.colorscheme {
       TabLineSel = { fg = default_colors.autumnYellow, bg = default_colors.sumiInk1 },
     }
 
-    function LoadAirlineTheme(dark)
-      local highlights = {}
-      -- Airline
-      for i in ipairs({ 1, 2, 3, 4 }) do
-        highlights['GruvboxBg' .. i - 1] = { fg = default_colors['sumiInk' .. i - dark], bg = default_colors.sumiInk0 }
-      end
-      return highlights
-    end
-
-    overrides = MT(overrides, LoadAirlineTheme(0))
+    -- function LoadAirlineTheme(dark)
+    --   local highlights = {}
+    --   -- Airline
+    --   for i in ipairs({ 1, 2, 3, 4 }) do
+    --     highlights['GruvboxBg' .. i - 1] = { fg = default_colors['sumiInk' .. i - dark], bg = default_colors.sumiInk0 }
+    --   end
+    --   return highlights
+    -- end
+    --
+    -- overrides = MT(overrides, LoadAirlineTheme(0))
 
     require 'kanagawa'.setup {
       undercurl = true, -- enable undercurls

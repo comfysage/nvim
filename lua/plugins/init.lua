@@ -1,4 +1,8 @@
 return {
+  { import = 'plugins.std' },
+  { import = 'plugins.git' },
+  { import = 'plugins.ui' },
+  { import = 'plugins.colorscheme' },
   -- the plugin manager can manage itself
   { 'folke/lazy.nvim', branch = 'stable' },
 

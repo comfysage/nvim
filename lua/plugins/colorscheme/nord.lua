@@ -1,10 +1,11 @@
 return {
   Spec.colorscheme {
     'AlexvZyl/nordic.nvim',
+    enabled = false,
   },
   Spec.colorscheme {
     'shaunsingh/nord.nvim',
-    enabled = false,
+    enabled = true,
     config = function()
       vim.g.nord_borders = false
       vim.g.nord_disable_background = false
