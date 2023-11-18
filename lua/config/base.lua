@@ -108,6 +108,7 @@ endfunction
 vim.api.nvim_create_user_command('SubstituteSelection', function (_)
   local select = vim.fn.Get_visual_selection()
   vim.ui.input({ prompt = "replace `".. select .."` with >" }, function (input)
+    if not input then return end
     vim.cmd("%s/"..select.."/"..input.."/g")
     vim.cmd('norm ``')
   end)
