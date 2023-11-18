@@ -45,12 +45,12 @@ return require 'comfy'.setup {
       }
     },
     {
-      'maps',
-      event = 'UIEnter',
-    },
-    {
       'plugins',
       event = nil,
+    },
+    {
+      'maps',
+      event = 'UIEnter',
     },
     {
       'highlights',
