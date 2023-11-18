@@ -56,6 +56,15 @@ return {
   fix = function ()
     vim.cmd [[ hi clear SpellCap ]]
 
+    if vim.g.neovide then
+      local alpha = function ()
+        return string.format("%x", math.floor(255 * vim.g.transparency or 0.0))
+      end
+      local bg_color = '#' .. vim.api.nvim_get_hl(0, { name = 'Normal' }).bg
+
+      vim.g.neovide_background_color = bg_color .. alpha()
+    end
+
     -- notes
 
     local groups = {
