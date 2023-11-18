@@ -1,3 +1,5 @@
+require 'comfy.globals'
+
 local M = {}
 
 local default_colorscheme = "habamax" -- or "zaibatsu" or "retrobox"
