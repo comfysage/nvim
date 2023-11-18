@@ -23,6 +23,8 @@
 --   bind { "sd", "zb", { remap = false } }
 -- end
 
+local keymaps = require 'keymaps'.setup {}
+
 keymaps.normal["s{"] = { '[{', 'Goto previous paragraph', { remap = false } }
 keymaps.normal["s}"] = { ']}', 'Goto next paragraph', { remap = false } }
 
