@@ -84,3 +84,5 @@ local status, lz = pcall(require, 'lazy')
 if status then
   pcall(lz.setup, 'plugins', opts)
 end
+
+keymaps.normal['<space>sl'] = { function() require 'lazy'.home() end, 'Open Lazy' }
