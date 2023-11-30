@@ -12,3 +12,9 @@ toggle_transparent_background(false)
 
 keymaps.normal['<C-V>'] = { '"+p', 'paste from system clipboard' }
 keymaps.visual['<C-C>'] = { '"+y', 'copy to system clipboard' }
+
+vim.api.nvim_create_autocmd({ 'UIEnter', 'ColorScheme' }, {
+  callback = function ()
+    vim.cmd[[ redraw! ]]
+  end
+})
