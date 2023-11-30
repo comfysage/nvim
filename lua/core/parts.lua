@@ -1,56 +1,64 @@
 local parts = {}
 
----@param _modules { [Module]: boolean }
-function parts.modules(_modules)
-  -- preload keymaps module
-  local ok, keymaps = pcall (require, 'keymaps')
-  if ok then keymaps.setup {} end
+function parts.load_modules(_)
+  if not core.config.modules['core'] then
+    vim.notify('core modules are not defined.', vim.log.levels.ERROR)
+    return
+  end
 
-  for _, spec in ipairs(core.config.modules) do
-    ---@type Module
-    local _mod = spec[1]
-    local _opts = spec.opts or {}
-    local _source = CONFIG_MODULE .. '.' .. _mod
-
-    if _modules[_mod] and _modules[_mod] == false then
+  for main_mod, modules in pairs(core.config.modules) do
+    if main_mod == 'core' then
       goto continue
     end
+    vim.notify('loading ' .. main_mod .. ' modules.', vim.log.levels.DEBUG)
 
-    ---@param source string
-    ---@param mod Module
-    ---@param opts table
-    local callback = function(source, mod, opts)
-      local status, result = pcall(require, source)
-      if not status then
-        vim.notify("failed to load " .. source .. "\n\t" .. result, vim.log.levels.ERROR)
-        return
-      end
-      if type(result) == 'table' then
-        if result.setup then
-          result.setup(opts)
-        end
-        if mod == 'highlights' then
-          vim.api.nvim_create_autocmd({ 'ColorScheme' }, {
-            group = core.group_id,
-            callback = function()
-              result.fix()
-            end
-          })
-        end
+    parts._modules(main_mod, modules)
+
+    ::continue::
+  end
+end
+
+function parts.load(module, spec)
+  if spec.loaded and spec.reload == false then
+    vim.notify('skipping reloading module: ' .. module, vim.log.levels.DEBUG)
+    return
+  end
+
+  ---@param source string
+  ---@param mod ModuleName
+  ---@param opts table
+  local callback = function(source, opts)
+    local status, result = pcall(require, source)
+    if not status then
+      vim.notify("failed to load " .. source .. "\n\t" .. result, vim.log.levels.ERROR)
+      return
+    end
+    if type(result) == 'table' then
+      if result.setup then
+        result.setup(opts)
       end
     end
-    if spec.event then
-      vim.api.nvim_create_autocmd({ spec.event }, {
-        group = core.group_id,
-        once = true,
-        callback = function()
-          callback(_source, _mod, _opts)
-        end,
-      })
-    else
-      callback(_source, _mod, _opts)
-    end
-      ::continue::
+  end
+  if spec.event then
+    vim.api.nvim_create_autocmd({ spec.event }, {
+      group = core.group_id,
+      once = true,
+      callback = function()
+        callback(module, spec.opts)
+      end,
+    })
+  else
+    callback(module, spec.opts)
+  end
+end
+
+---@param modules { [ModuleName]: boolean }
+function parts._modules(mod, modules)
+  for _, spec in ipairs(modules) do
+    ---@type ModuleName
+    local module = mod .. '.' .. spec.name
+
+    parts.load(module, spec)
   end
 end
 

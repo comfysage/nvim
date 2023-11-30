@@ -3,8 +3,15 @@ require 'core.plugin.globals'
 
 local parts = require 'core.parts'
 
----@alias Module 'options'|'highlights'|'base'|'maps'|'plugins'
----@alias Modules { [Module]: table }
+---@alias MainModule 'core'|'config'|string
+
+---@class ModuleSpec
+---@field name ModuleName
+---@field event string
+---@field opts table
+
+---@alias ModuleName 'options'|'highlights'|'base'|'maps'|'plugins'|string
+---@alias ModuleField { [MainModule]: Modules }
 
 ---@class Config
 ---@field colorscheme string
@@ -38,7 +45,32 @@ function M.setup(config)
   if vim.loader and vim.fn.has "nvim-0.9.1" == 1 then vim.loader.enable() end
   core.group_id = vim.api.nvim_create_augroup("config:" .. CONFIG_MODULE, {})
 
-  _G.core.config = vim.tbl_deep_extend('force', _G.core.config, config or {})
+  -- preload keymaps module
+  local ok, keymaps = pcall(require, 'keymaps')
+  if ok then keymaps.setup {} end
+
+  ---@class Config
+  local _config = {
+    colorscheme = config.colorscheme,
+    transparent_background = config.transparent_background,
+    transparent_fn = config.transparent_fn,
+    modules = {},
+  }
+
+  for main_mod, modules in pairs(config.modules) do
+    _config.modules[main_mod] = {}
+    for i, spec in ipairs(modules) do
+      _config.modules[main_mod][i] = {
+        name = spec[1],
+        reload = spec.reload or true,
+        event = spec.event or false,
+        opts = spec.opts or {},
+        loaded = false,
+      }
+    end
+  end
+
+  _G.core.config = vim.tbl_deep_extend('force', _G.core.config, _config)
 
   M.load()
 end
@@ -47,7 +79,7 @@ end
 function M.load()
   vim.notify('loading config', vim.log.levels.DEBUG)
 
-  parts.modules {}
+  parts.load_modules {}
 
   parts.colorscheme {}
 
@@ -64,9 +96,7 @@ end
 function M.reload()
   vim.notify('reloading config', vim.log.levels.DEBUG)
 
-  parts.modules {
-    plugins = false,
-  }
+  parts.load_modules {}
 
   parts.colorscheme {}
 
