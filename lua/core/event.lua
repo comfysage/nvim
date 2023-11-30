@@ -1,5 +1,5 @@
-local Util = require 'comfy.util'
-local Config = require 'comfy.config'
+local Util = require 'core.util'
+local Config = require 'core.config'
 
 ---@class ComfyEventCore
 local M = {}

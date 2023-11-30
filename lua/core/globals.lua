@@ -63,3 +63,62 @@ MT = function (t1, t2)
     return t1
 end
 
+CUTIL = {}
+
+CUTIL.PATH_DIR = function (_)
+  local _dir = vim.fn.expand('%:.:h')
+  local name
+  if _dir == '.' then
+    name = ''
+  else
+    name = _dir
+  end
+  return name
+end
+
+-- if in visual mode, returns number of visually selected words
+CUTIL.WORD_COUNT = function (_)
+  local w_count = vim.fn.wordcount()
+  local count = 0
+  if w_count['visual_words'] then
+    count = w_count['visual_words']
+  else
+    count = w_count['words']
+  end
+  if count == 0 then
+    return ""
+  end
+  return count
+end
+
+-- if in visual mode, returns number of visually selected lines
+CUTIL.LINE_COUNT = function (_)
+  local _vstart = vim.fn.line('v')
+  local _vend = vim.fn.line('.')
+
+  local diff = _vend - _vstart
+  if diff == 0 then
+    return vim.api.nvim_buf_line_count(0)
+  end
+
+  if diff < 0 then
+    diff = -diff
+  end
+
+  return diff
+end
+
+CUTIL.FILE_INFO = function (_)
+  local type_info = {
+    lua = CUTIL.LINE_COUNT,
+  }
+  local bufnr = vim.fn.bufnr()
+  local t = vim.filetype.match { buf = bufnr }
+  local fn = type_info[t]
+
+  if fn then
+    return fn()
+  end
+
+  return ''
+end

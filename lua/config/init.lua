@@ -1,5 +1,5 @@
 -- config.init
-return require 'comfy'.setup {
+return require 'core'.setup {
   colorscheme = 'evergarden',
   transparent_background = true,
   transparent_fn = {
