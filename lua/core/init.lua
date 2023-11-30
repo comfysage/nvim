@@ -1,6 +1,7 @@
 require 'core.load'
 require 'core.plugin.globals'
 
+local Util = require 'core.utils'
 local parts = require 'core.parts'
 
 ---@alias MainModule 'core'|'config'|string
@@ -14,6 +15,7 @@ local parts = require 'core.parts'
 ---@alias ModuleField { [MainModule]: Modules }
 
 ---@class Config
+---@field log_level integer
 ---@field colorscheme string
 ---@field transparent_background boolean
 ---@field transparent_fn { [string]: function(bool) }
@@ -31,6 +33,7 @@ _G.core = _G.core or {}
 
 ---@type Config
 M.default_config = {
+  log_level = vim.log.levels.INFO,
   colorscheme = "habamax", -- or "zaibatsu" or "retrobox"
   transparent_background = false,
   transparent_fn = {},
@@ -77,7 +80,7 @@ end
 
 --- load config
 function M.load()
-  vim.notify('loading config', vim.log.levels.DEBUG)
+  Util.log('loading config')
 
   parts.load_modules {}
 
@@ -94,7 +97,7 @@ function M.load()
 end
 
 function M.reload()
-  vim.notify('reloading config', vim.log.levels.DEBUG)
+  Util.log('reloading config')
 
   parts.load_modules {}
 

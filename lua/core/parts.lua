@@ -1,8 +1,10 @@
+local Util = require 'core.utils'
+
 local parts = {}
 
 function parts.load_modules(_)
   if not core.config.modules['core'] then
-    vim.notify('core modules are not defined.', vim.log.levels.ERROR)
+    Util.log('core modules are not defined.', 'error')
     return
   end
 
@@ -10,7 +12,7 @@ function parts.load_modules(_)
     if main_mod == 'core' then
       goto continue
     end
-    vim.notify('loading ' .. main_mod .. ' modules.', vim.log.levels.DEBUG)
+    Util.log('loading ' .. main_mod .. ' modules.')
 
     parts._modules(main_mod, modules)
 
@@ -20,7 +22,7 @@ end
 
 function parts.load(module, spec)
   if spec.loaded and spec.reload == false then
-    vim.notify('skipping reloading module: ' .. module, vim.log.levels.DEBUG)
+    Util.log('skipping reloading module: ' .. module)
     return
   end
 
@@ -30,7 +32,7 @@ function parts.load(module, spec)
   local callback = function(source, opts)
     local status, result = pcall(require, source)
     if not status then
-      vim.notify("failed to load " .. source .. "\n\t" .. result, vim.log.levels.ERROR)
+      Util.log("failed to load " .. source .. "\n\t" .. result, 'error')
       return
     end
     if type(result) == 'table' then
@@ -39,6 +41,7 @@ function parts.load(module, spec)
       end
     end
   end
+
   if spec.event then
     vim.api.nvim_create_autocmd({ spec.event }, {
       group = core.group_id,
@@ -59,6 +62,7 @@ function parts._modules(mod, modules)
     local module = mod .. '.' .. spec.name
 
     parts.load(module, spec)
+    spec.loaded = true
   end
 end
 
@@ -66,7 +70,7 @@ function parts.colorscheme(_)
   vim.cmd.colorscheme(core.config.colorscheme)
   local ok, _ = pcall(vim.cmd.colorscheme, core.config.colorscheme)
   if not ok then
-    vim.notify("couldn't load colorscheme", vim.log.levels.ERROR)
+    Util.log("couldn't load colorscheme", 'error')
   end
 
   vim.api.nvim_create_autocmd({ 'UIEnter' }, {
