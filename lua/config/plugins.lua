@@ -80,6 +80,8 @@ if is_bootstrap then
   -- require('packer').sync()
 end
 
+vim.notify('loading plugins.', vim.log.levels.DEBUG)
+
 local status, lz = pcall(require, 'lazy')
 if status then
   pcall(lz.setup, 'plugins', opts)
