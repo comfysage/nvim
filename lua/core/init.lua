@@ -45,6 +45,8 @@ end
 
 --- load config
 function M.load()
+  vim.notify('loading config', vim.log.levels.DEBUG)
+
   parts.modules {}
 
   parts.colorscheme {}
@@ -60,6 +62,8 @@ function M.load()
 end
 
 function M.reload()
+  vim.notify('reloading config', vim.log.levels.DEBUG)
+
   parts.modules {
     plugins = false,
   }
