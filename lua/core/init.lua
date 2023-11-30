@@ -1,6 +1,5 @@
-require 'core.globals'
+require 'core.load'
 require 'core.plugin.globals'
-require 'core.import'
 
 local parts = require 'core.parts'
 

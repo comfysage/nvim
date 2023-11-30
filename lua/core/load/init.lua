@@ -1,3 +1,5 @@
+require 'core.load.globals'
+
 --- toggle background transparency
 ---@param props boolean
 function _G.toggle_transparent_background(props)
