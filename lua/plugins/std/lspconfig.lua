@@ -5,7 +5,7 @@ local on_attach = function(_, buf)
 
   vim.keymap.set('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
   vim.keymap.set('n', '<space>gd', function ()
-    require 'comfy.plugin.lsp'.peek_definition()
+    require 'core.plugin.lsp'.peek_definition()
   end, opts)
   vim.keymap.set('n', 'gr', '<Cmd>lua vim.lsp.buf.rename()<CR>', opts)
 

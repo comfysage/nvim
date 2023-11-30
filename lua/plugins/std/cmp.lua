@@ -1,4 +1,4 @@
-local status, lspkind = pcall(require, 'comfy.plugin.lspkind')
+local status, lspkind = pcall(require, 'core.plugin.lspkind')
 if not status then return end
 
 vim.g.indentLine_conceallevel = 2
