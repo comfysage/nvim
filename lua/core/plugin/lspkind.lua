@@ -14,12 +14,12 @@ for hi_group, hl in pairs(cmp_hi) do
 end
 
 local kind_icons = {
-  Text  = { "", "Normal" },
+  Text  = { "", "Comment" },
   Method  = { "", "Constant" },
   Function  = { "", "Constant" },
   Constructor  = { "", "Structure" },
   Field  = { "ﰠ", "Identifier" },
-  Variable  = { "", "Identifier" },
+  Variable  = { "󰀫", "Identifier" },
   Class  = { "ﴯ", "Structure" },
   Interface  = { "", "Structure" },
   Module  = { "", "Keyword" },
@@ -28,9 +28,9 @@ local kind_icons = {
   Value  = { "", "Constant" },
   Enum  = { "", "Constant" },
   Keyword  = { "", "Keyword" },
-  Snippet  = { "", "Normal" },
+  Snippet  = { "", "Comment" },
   Color  = { "", "Constant" },
-  File  = { "", "Type" },
+  File  = { "", "Title" },
   Reference  = { "", "Identifier" },
   Folder  = { "", "Type" },
   EnumMember  = { "", "Constant" },
@@ -39,6 +39,16 @@ local kind_icons = {
   Event  = { "", "Keyword" },
   Operator  = { "", "Operator" },
   TypeParameter  = { "", "Type" },
+  Namespace = "󰌗",
+  Table = { "", "Structure" },
+  Object = { "󰅩", "Structure" },
+  Tag = { "", "Identifier" },
+  Array = { "[]", "Type" },
+  Boolean = { "", "Boolean" },
+  Number = { "", "Constant" },
+  Null = { "󰟢", "Comment" },
+  String = { "\"\"", "Comment" },
+  Package = { "", "healthWarning" },
 }
 
 for kind, item in pairs(kind_icons) do
