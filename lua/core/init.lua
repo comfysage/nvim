@@ -108,6 +108,12 @@ end
 function M.reload()
   Util.log('reloading config')
 
+  vim.api.nvim_del_augroup_by_id(core.group_id)
+  core.group_id = vim.api.nvim_create_augroup("config:" .. CONFIG_MODULE, {})
+  require 'core.load.autocmds'.setup {
+    group_id = core.group_id,
+  }
+
   parts.load_modules {}
 
   parts.colorscheme {}
