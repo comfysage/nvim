@@ -22,6 +22,17 @@ return require 'core'.setup {
   modules = {
     ['core'] = {
       {
+        'options',
+        event = nil,
+        opts = {
+          cursorline = false,
+          tab_width = 2,
+          scrolloff = 5,
+          use_ripgrep = true,
+          treesitter_folds = false,
+        }
+      },
+      {
         'highlights',
         event = 'UIEnter',
         opts = {
@@ -58,12 +69,6 @@ return require 'core'.setup {
       {
         'options',
         event = nil,
-        opts = {
-          cursorline = false,
-          tab_width = 2,
-          use_ripgrep = true,
-          treesitter_folds = false,
-        }
       },
       {
         'base',
