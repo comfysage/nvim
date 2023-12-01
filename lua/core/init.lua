@@ -24,6 +24,11 @@ local parts = require 'core.parts'
 ---@class Core
 ---@field config Config
 ---@field group_id integer
+---@field path CorePath
+
+---@class CorePath
+---@field root string
+---@field keymaps string
 
 local M = {}
 
@@ -43,14 +48,18 @@ M.default_config = {
 ---@type Config
 _G.core.config = vim.tbl_deep_extend('force', M.default_config, _G.core.config or {})
 
+local root_path = vim.fn.stdpath("data") .. "/core"
+_G.core.path = {
+  root = root_path,
+}
+
 ---@param config Config
 function M.setup(config)
   if vim.loader and vim.fn.has "nvim-0.9.1" == 1 then vim.loader.enable() end
   core.group_id = vim.api.nvim_create_augroup("config:" .. CONFIG_MODULE, {})
 
   -- preload keymaps module
-  local ok, keymaps = pcall(require, 'keymaps')
-  if ok then keymaps.setup {} end
+  parts.preload {}
 
   ---@class Config
   local _config = {

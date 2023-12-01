@@ -1,6 +1,7 @@
 return {
   'crispybaccoon/keymaps.nvim',
   dir = ENV('KITCHEN') .. '/pan/keymaps.nvim',
+  enabled = false,
   priority = 2000,
   opts = {
   },
