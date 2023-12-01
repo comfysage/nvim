@@ -22,7 +22,7 @@ return require 'core'.setup {
   modules = {
     ['core'] = {
       {
-        'config.highlights',
+        'highlights',
         event = 'UIEnter',
         opts = {
           fix = function()

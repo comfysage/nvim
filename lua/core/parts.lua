@@ -9,14 +9,10 @@ function parts.load_modules(_)
   end
 
   for main_mod, modules in pairs(core.config.modules) do
-    if main_mod == 'core' then
-      goto continue
-    end
     Util.log('loading ' .. main_mod .. ' modules.')
 
     parts._modules(main_mod, modules)
 
-    ::continue::
   end
 end
 
@@ -60,6 +56,9 @@ function parts._modules(mod, modules)
   for _, spec in ipairs(modules) do
     ---@type ModuleName
     local module = mod .. '.' .. spec.name
+    if mod == 'core' then
+      module = mod .. '.config.' .. spec.name
+    end
 
     parts.load(module, spec)
     spec.loaded = true
