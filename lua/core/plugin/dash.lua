@@ -4,7 +4,13 @@ local M = {}
 local api = vim.api
 local fn = vim.fn
 
+---@class DashConfig
+---@field open_on_startup boolean
+---@field header string[]
+---@field buttons { [1]: string, [2]: string, [3]: string|function }[]
+
 local default_config = {
+  open_on_startup = true,
   header = {
     [[         )  (   ]],
     [[      (   ) )   ]],
@@ -29,6 +35,7 @@ api.nvim_create_autocmd("BufLeave", {
   end,
 })
 
+---@param opts DashConfig
 function M.open(opts)
   local config = vim.tbl_deep_extend('force', default_config, opts)
   -- setup variables
@@ -98,9 +105,9 @@ function M.open(opts)
   end
 
   local headerStart_Index = math.abs(math.floor((get_win_height(win) / 2) - (#dashboard / 2))) +
-      1                                                                              -- 1 = To handle zero case
+      1 -- 1 = To handle zero case
   local abc = math.abs(math.floor((get_win_height(win) / 2) - (#dashboard / 2))) +
-  1                                                                                  -- 1 = To handle zero case
+      1 -- 1 = To handle zero case
 
   -- set ascii
   for _, val in ipairs(dashboard) do

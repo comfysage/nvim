@@ -67,6 +67,7 @@ return require 'core'.setup {
       {
         'dash',
         opts = {
+          open_on_startup = true,
           header = {
             [[         )  (   ]],
             [[      (   ) )   ]],
