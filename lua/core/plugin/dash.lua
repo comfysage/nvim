@@ -124,7 +124,7 @@ function M.open(opts)
   local dash = api.nvim_create_namespace "dash"
   local horiz_pad_index = math.floor((api.nvim_win_get_width(win) / 2) - (dashWidth / 2)) - 2
 
-  for i = abc, abc + #header do
+  for i = abc, abc + #header - 3 do
     api.nvim_buf_add_highlight(buf, dash, "DashAscii", i, horiz_pad_index, -1)
   end
 
