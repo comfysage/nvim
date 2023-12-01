@@ -85,8 +85,9 @@ function M.open(opts)
   end
 
   local function addPadding_toHeader(str)
-    local pad = (api.nvim_win_get_width(win) - fn.strwidth(str)) / 2
-    return string.rep(" ", math.floor(pad)) .. str .. " "
+    local start_padding = (api.nvim_win_get_width(win) - fn.strwidth(str)) / 2
+    local end_padding   = (dashWidth - fn.strwidth(str)) / 2 + 1
+    return string.rep(" ", math.floor(start_padding)) .. str .. string.rep(" ", math.floor(end_padding))
   end
 
   local dashboard = {}
