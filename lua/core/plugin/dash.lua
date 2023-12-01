@@ -132,7 +132,7 @@ function M.open(opts)
     api.nvim_buf_add_highlight(buf, dash, "DashButtons", i, horiz_pad_index, -1)
   end
 
-  api.nvim_win_set_cursor(win, { abc + #header, math.floor(vim.o.columns / 2) - 13 })
+  api.nvim_win_set_cursor(win, { abc + #header, math.floor((vim.o.columns - dashWidth) / 2) - 2})
 
   local first_btn_line = abc + #header + 2
   local keybind_lineNrs = {}
@@ -152,13 +152,13 @@ function M.open(opts)
   vim.keymap.set("n", "k", function()
     local cur = fn.line "."
     local target_line = cur == keybind_lineNrs[1] and keybind_lineNrs[#keybind_lineNrs] or cur - 2
-    api.nvim_win_set_cursor(win, { target_line, math.floor(vim.o.columns / 2) - 13 })
+    api.nvim_win_set_cursor(win, { target_line, math.floor((vim.o.columns - dashWidth) / 2) - 2 })
   end, { buffer = true })
 
   vim.keymap.set("n", "j", function()
     local cur = fn.line "."
     local target_line = cur == keybind_lineNrs[#keybind_lineNrs] and keybind_lineNrs[1] or cur + 2
-    api.nvim_win_set_cursor(win, { target_line, math.floor(vim.o.columns / 2) - 13 })
+    api.nvim_win_set_cursor(win, { target_line, math.floor((vim.o.columns - dashWidth) / 2) - 2 })
   end, { buffer = true })
 
   -- pressing enter on
