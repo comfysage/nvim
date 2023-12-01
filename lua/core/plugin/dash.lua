@@ -142,6 +142,7 @@ function M.open(opts)
     first_btn_line = first_btn_line + 2
   end
 
+  vim.keymap.set("n", "q", ":quit<cr>", { buffer = true })
   vim.keymap.set("n", "h", "", { buffer = true })
   vim.keymap.set("n", "<Left>", "", { buffer = true })
   vim.keymap.set("n", "l", "", { buffer = true })
