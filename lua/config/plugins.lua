@@ -54,6 +54,13 @@ local opts = {
       },
     },
   },
+  -- required for core
+  performance = {
+    reset_packpath = false,
+    rtp = {
+      reset = false,
+    },
+  },
 }
 
 -- custom Plug commands
