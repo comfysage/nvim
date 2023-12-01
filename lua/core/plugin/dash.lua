@@ -29,6 +29,7 @@ local default_config = {
 }
 
 api.nvim_create_autocmd("BufLeave", {
+  group = core.group_id,
   callback = function()
     if vim.bo.ft == "dash" then
       vim.g.dash_displayed = false
