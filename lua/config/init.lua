@@ -64,6 +64,25 @@ return require 'core'.setup {
           end
         },
       },
+      {
+        'dash',
+        opts = {
+          header = {
+            [[         )  (   ]],
+            [[      (   ) )   ]],
+            [[       ) ( (    ]],
+            [[     _______)_  ]],
+            [[  .-'---------| ]],
+            [[ ( C|/\/\/\/\/| ]],
+            [[  '-./\/\/\/\/| ]],
+            [[    '_________' ]],
+            [[     '-------'  ]],
+          },
+          buttons = {
+            { 'find files', 'SPC SPC', function() require 'core.plugin.telescope'.space() end },
+          },
+        },
+      },
     },
     ['config'] = {
       {
