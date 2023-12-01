@@ -1,13 +1,6 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- source on write
-local packer_group = vim.api.nvim_create_augroup('Packer', { clear = true })
-vim.api.nvim_create_autocmd('BufWritePost', {
-  command = 'source <afile> | PlugCompile',
-  group = packer_group,
-  pattern = 'plugins.lua',
-})
-
 local root_path = vim.fn.stdpath("data") .. "/lazy"
 local is_bootstrap = false
 
