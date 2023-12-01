@@ -110,6 +110,10 @@ return require 'core'.setup {
         reload = false,
       },
       {
+        'highlights',
+        event = 'UIEnter',
+      },
+      {
         'maps',
         event = 'UIEnter',
       },
