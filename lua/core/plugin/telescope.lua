@@ -1,19 +1,19 @@
 -- Custom Functions
 
-local builtin = require('telescope.builtin')
+local builtin = require 'telescope.builtin'
 
-local themes = require('telescope.themes')
+local themes = require 'telescope.themes'
 
-local previewers = require("telescope.previewers")
-local pickers = require("telescope.pickers")
-local sorters = require("telescope.sorters")
-local finders = require("telescope.finders")
+local previewers = require 'telescope.previewers'
+local pickers = require 'telescope.pickers'
+local sorters = require 'telescope.sorters'
+local finders = require 'telescope.finders'
 
 local M = {}
 
 -- Dropdown Theme
 
-M.dropdown = require('telescope.themes').get_dropdown({
+M.dropdown = require 'telescope.themes'.get_dropdown({
     borderchars = {
       --[[ { '─', '│', '─', '│', '┌', '┐', '┘', '└'},
       prompt = {"─", "│", " ", "│", '┌', '┐', "│", "│"},
@@ -72,6 +72,7 @@ M.StationTheme = {
 -- Space Station
 
 function M.space(props)
+  props = props or {}
   local opts = MergeTable(M.StationTheme, {
     -- border = true,
     -- previewer = false,
@@ -84,6 +85,7 @@ function M.space(props)
 end
 
 function M.grep(props)
+  props = props or {}
   local opts = MergeTable(M.StationTheme, {
     max_results = 20
   })
@@ -94,6 +96,7 @@ end
 -- Explorer
 
 function M.explorer(props)
+  props = props or {}
   local opts = M.IvyTheme
   opts = MergeTable(M.dropdown, {
     preview = true,
@@ -103,15 +106,16 @@ function M.explorer(props)
     preview_title = '',
   })
 
-  builtin.find_files(MergeTable(opts,props))
+  builtin.find_files(MergeTable(opts, props))
 end
 
 -- Ivy Git Finder
 
 function M.git_files(props)
+  props = props or {}
   local opts = M.IvyTheme
 
-  builtin.git_files(MergeTable(opts,props))
+  builtin.git_files(MergeTable(opts, props))
 end
 
 -- Dotfile Finder
