@@ -138,6 +138,7 @@ function M.setup(opts)
     vim.api.nvim_create_autocmd('BufEnter', {
       pattern = item[1],
       callback = item[3],
+      group = core.group_id,
       desc = item[2],
     })
     ::continue::
