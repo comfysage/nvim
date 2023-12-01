@@ -35,6 +35,9 @@ api.nvim_create_autocmd("BufLeave", {
   end,
 })
 
+vim.api.nvim_set_hl(0, "DashAscii", { link = 'TablineSel' })
+vim.api.nvim_set_hl(0, "DashButtons", { link = 'Comment' })
+
 ---@param opts DashConfig
 function M.open(opts)
   local config = vim.tbl_deep_extend('force', default_config, opts)
