@@ -45,6 +45,16 @@ return {
       }
       require 'telescope'.load_extension 'fzf'
       -- require 'telescope'.load_extension 'file_browser'
+
+      local status, keymaps_nvim = pcall(require, 'keymaps')
+      if status then
+        require 'telescope'.load_extension 'keymaps_nvim'
+        keymaps.normal['<space>fm'] = {
+          function() require 'telescope'.extensions.keymaps_nvim.keymaps_nvim() end,
+          group = 'Telescope',
+          'Find Keymaps'
+        }
+      end
     end
   }
 }
