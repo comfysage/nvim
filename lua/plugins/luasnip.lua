@@ -31,13 +31,13 @@ return {
   }, ]]
       }
 
-      require("luasnip.loaders.from_lua").load({ paths = "~/.config/nvim/snip" })
+      require 'luasnip.loaders.from_lua'.load { paths = '~/.config/nvim/snip' }
 
       -- load snippets from snippets directory
-      require("luasnip.loaders.from_vscode").lazy_load({
-        paths = { ENV('CONFIGPATH') .. "/snippets" },
+      require 'luasnip.loaders.from_vscode'.lazy_load {
+        paths = { ENV 'CONFIGPATH' .. '/snippets' },
         include = { 'rust', 'go', 'lua', 'c', 'cpp', 'html', 'js' },
-      })
+      }
 
       -- this will expand the current item or jump to the next item within the snippet.
       vim.keymap.set({ "i", "s" }, "<M-l>", function()
