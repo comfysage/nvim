@@ -40,7 +40,7 @@ return {
       })
 
       -- this will expand the current item or jump to the next item within the snippet.
-      vim.keymap.set({ "i", "s" }, "<c-l>", function()
+      vim.keymap.set({ "i", "s" }, "<M-l>", function()
         if require 'luasnip'.expand_or_jumpable() then
           require 'luasnip'.expand_or_jump()
         end
@@ -48,7 +48,7 @@ return {
 
       -- <c-j> is my jump backwards key.
       -- this always moves to the previous item within the snippet
-      vim.keymap.set({ "i", "s" }, "<c-h>", function()
+      vim.keymap.set({ "i", "s" }, "<M-h>", function()
         if require 'luasnip'.jumpable(-1) then
           require 'luasnip'.jump(-1)
         end
