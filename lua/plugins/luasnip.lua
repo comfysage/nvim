@@ -36,7 +36,7 @@ return {
       -- load snippets from snippets directory
       require("luasnip.loaders.from_vscode").lazy_load({
         paths = { ENV('CONFIGPATH') .. "/snippets" },
-        include = { "go", "lua", "c", "cpp", "html", "js" }
+        include = { 'rust', 'go', 'lua', 'c', 'cpp', 'html', 'js' },
       })
 
       -- this will expand the current item or jump to the next item within the snippet.
