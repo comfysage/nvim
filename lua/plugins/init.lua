@@ -20,7 +20,6 @@ return {
     opts = {}
   }, ]]
   { 'antonk52/vim-tabber', lazy = true },
-  'psliwka/vim-smoothie',
   -- 'junegunn/vim-easy-align',
   -- 'junegunn/vim-peekaboo',
 
@@ -33,18 +32,13 @@ return {
   -- { 'norcalli/nvim-colorizer.lua', ft = { 'css', 'scss' } },
 
   -- IDE
-  { 'mattn/emmet-vim', ft = { 'css', 'scss', 'html', 'tsx' } },
   -- 'nvim-tree/nvim-web-devicons', -- Icons for Telescope
 
   -- 'pangloss/vim-javascript',
-  -- { 'prettier/vim-prettier', build = 'npm install --frozen-lockfile --production', lazy = true },
-  -- 'airblade/vim-gitgutter',
-  { 'tpope/vim-fugitive', enabled = false },
   -- {
   --   'sindrets/diffview.nvim',
   --   dependencies = 'nvim-lua/plenary.nvim'
   -- },
-  { 'sheerun/vim-polyglot', enabled = false },
   -- 'ThePrimeagen/refactoring.nvim',
   {
     'simrat39/symbols-outline.nvim',
@@ -63,8 +57,6 @@ return {
 
   -- 'elkowar/yuck.vim',
 
-  -- 'tpope/vim-surround',
-  'tpope/vim-vinegar',
   { 'tpope/vim-markdown', ft = 'markdown' },
   {
     'mickael-menu/zk-nvim',
@@ -171,8 +163,6 @@ return {
   },
 
   -- Lua
-  'nvim-lua/plenary.nvim', -- utils
-  'nvim-lua/popup.nvim',
   -- { 'numToStr/Comment.nvim', name = 'commentary' },
   {
     'folke/todo-comments.nvim',
