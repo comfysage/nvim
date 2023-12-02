@@ -19,6 +19,7 @@ return require 'core'.setup {
       _G.gruvboxed_config.transparent_background = t
     end,
   },
+  config_module = 'config',
   modules = {
     ['core'] = {
       {
