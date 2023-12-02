@@ -145,6 +145,10 @@ return {
     config = function()
       local nvim_lsp = require 'lspconfig'
 
+      keymaps.normal['<space>si'] = { function ()
+        require 'lspconfig.ui.lspinfo'()
+      end, 'Show Lsp Info' }
+
       -- nvim-cmp supports additional completion capabilities
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
