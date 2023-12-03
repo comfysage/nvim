@@ -34,6 +34,25 @@ return require 'core'.setup {
         }
       },
       {
+        'base',
+        event = nil,
+        opts = {
+          file_associations = {
+            { { '*.vim', '*.md' }, 'Remove line numbers', function()
+              vim.opt_local.number = false
+            end },
+            { { '*.vto', '*.njk' }, '[Template Engine] set filetype html', function()
+              vim.bo.filetype = 'html'
+            end },
+            { { '*' }, 'Use `q` to quit qf list', function(opts)
+              if vim.bo[opts.buf].filetype == 'qf' then
+                vim.keymap.set('n', 'q', ':quit<cr>', { buffer = opts.buf })
+              end
+            end },
+          },
+        }
+      },
+      {
         'highlights',
         event = 'UIEnter',
         opts = {
@@ -94,21 +113,6 @@ return require 'core'.setup {
       {
         'base',
         event = nil,
-        opts = {
-          file_associations = {
-            { { '*.vim', '*.md' }, 'Remove line numbers', function()
-              vim.opt_local.number = false
-            end },
-            { { '*.vto', '*.njk' }, '[Template Engine] set filetype html', function()
-              vim.bo.filetype = 'html'
-            end },
-            { { '*' }, 'Use `q` to quit qf list', function(opts)
-              if vim.bo[opts.buf].filetype == 'qf' then
-                vim.keymap.set('n', 'q', ':quit<cr>', { buffer = opts.buf })
-              end
-            end },
-          },
-        }
       },
       {
         'plugins',
