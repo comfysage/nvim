@@ -81,7 +81,7 @@ return require 'core'.setup {
             [[    ▝▀▀▀▀▀▀▀▀▀  ]],
           },
           buttons = {
-            { 'find files', 'SPC SPC', function() require 'core.plugin.telescope'.space() end },
+            { 'find files', 'SPC SPC', function() require 'core.plugin.telescope'.picker.find_files() end },
           },
         },
       },
