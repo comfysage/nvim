@@ -58,6 +58,14 @@ return require 'core'.setup {
         opts = 'config.highlights',
       },
       {
+        'telescope',
+        event = 'UIEnter',
+        opts = {
+          use_fzf = true,
+          config = {},
+        },
+      },
+      {
         'dash',
         opts = {
           open_on_startup = true,
