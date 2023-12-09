@@ -1,5 +1,5 @@
 -- config.init
-return require 'core'.setup {
+return {
   colorscheme = 'evergarden',
   transparent_background = true,
   transparent_fn = {

@@ -1,16 +1,15 @@
 local rootpath = vim.fn.stdpath("data") .. "/core"
-local sentinelpath = rootpath .. "/sentinel"
-vim.opt.rtp:prepend(sentinelpath)
+local chaipath = rootpath .. "/chai"
 
-local ok, core = pcall(require, 'core')
-if not ok then
-  vim.fn.system({
+if not vim.loop.fs_stat(chaipath) then
+  vim.system({
     "git",
     "clone",
     "--filter=blob:none",
-    "https://github.com/crispybaccoon/sentinel.nvim.git",
-    sentinelpath,
-  })
+    "https://github.com/crispybaccoon/chaivim.git",
+    chaipath,
+  }):wait()
 end
+vim.opt.rtp:prepend(chaipath)
 
-require 'config'
+require 'core'.setup 'config'
