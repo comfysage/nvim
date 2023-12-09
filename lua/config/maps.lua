@@ -67,8 +67,6 @@ keymaps.visual["++"] = { "gc", 'Comment Selection' }
 keymaps.normal['C'] = { 'cc<ESC>', '' }
 keymaps.normal['<M-v>'] = { '^v$', '' }
 
-keymaps.normal['B'] = { ':Bclose ', '' }
-
 -- }}}
 
 -- Move through wrapping lines {{{
