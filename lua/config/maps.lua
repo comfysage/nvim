@@ -6,7 +6,10 @@ keymaps.normal['<space>R'] = { function()
   require 'core'.reload()
 end, 'reload config' }
 
-keymaps.normal['<leader>s'] = { "<Cmd>source %<CR>", 'Source File' }
+keymaps.normal['<leader>s'] = { function()
+  vim.cmd.source '%'
+  vim.notify('sourcing current file.', vim.log.levels.INFO)
+end, 'Source File' }
 keymaps.visual['<leader>s'] = { "<Cmd>'<,'>source<CR>", 'Source File Segment' }
 keymaps.normal['<C-s>'] = { vim.cmd.update, 'Save File' }
 keymaps.insert['<C-s>'] = { vim.cmd.update, 'Save File' }
