@@ -4,7 +4,7 @@ return {
   { import = 'plugins.ui' },
   { import = 'plugins.colorscheme' },
   -- the plugin manager can manage itself
-  { 'folke/lazy.nvim', branch = 'stable' },
+  { 'folke/lazy.nvim' },
 
   -- {
   --   'francoiscabrol/ranger.vim',
