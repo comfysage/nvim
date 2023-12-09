@@ -25,8 +25,10 @@ keymaps.normal[';'] = { 'viw', '' }
 -- nnoremap <C-d> <ESC>viw
 -- inoremap <C-d> <ESC>viw
 
-keymaps.normal['W'] = { '$', '' }
-keymaps.normal['B'] = { '^', '' }
+keymaps.normal['W'] = { 'g_', 'Goto last non empty of line' }
+keymaps.normal['B'] = { '^', 'Goto first non empty of line' }
+keymaps.visual['W'] = { 'g_', 'Goto last non empty of line' }
+keymaps.visual['B'] = { '^', 'Goto first non empty of line' }
 --nmap <space><space> <ESC>:<BACKSPACE>zz
 
 -- quick fix list
