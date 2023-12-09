@@ -32,8 +32,10 @@ keymaps.visual['B'] = { '^', 'Goto first non empty of line' }
 --nmap <space><space> <ESC>:<BACKSPACE>zz
 
 -- quick fix list
-keymaps.normal['<C-n>'] = { ':cnext<cr>', 'Goto next item in qf list' }
-keymaps.normal['<C-b>'] = { ':cprev<cr>', 'Goto prev item in qf list' }
+keymaps.normal['<c-n>'] = { ':cnext<cr>', 'goto next item in qf list' }
+keymaps.normal['<c-b>'] = { ':cprev<cr>', 'goto prev item in qf list' }
+
+keymaps.normal[{ 'SPC', 's', 'q' }] = { ':copen<cr>', 'open qf list' }
 
 -- Invert NumberLine
 keymaps.normal['<leader>n'] = { ':set invnu<CR>', '' }
