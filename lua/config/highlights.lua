@@ -48,11 +48,11 @@ return {
     -- notes
 
     local groups = {
-      fixme   = { "Fixme", vim.api.nvim_get_hl(0, { name = "DiagnosticWarn" }) },
-      todo    = { "Todo", vim.api.nvim_get_hl(0, { name = "DiagnosticInfo" }) },
-      note    = { "Note", vim.api.nvim_get_hl(0, { name = "DiagnosticHint" }) },
-      success = { "Success", vim.api.nvim_get_hl(0, { name = "DiagnosticOk" }) },
-      failure = { "Failure", vim.api.nvim_get_hl(0, { name = "DiagnosticError" }) },
+      fixme   = { "Fixme", core.hl.diagnostic.warn },
+      todo    = { "Todo", core.hl.diagnostic.info },
+      note    = { "Note", core.hl.diagnostic.hint },
+      success = { "Success", core.hl.diagnostic.ok },
+      failure = { "Failure", core.hl.diagnostic.error },
     }
     for _, v in pairs(groups) do
       vim.api.nvim_set_hl(0, v[1], { fg = v[2].fg })
