@@ -64,8 +64,8 @@ keymaps.visual["o"] = { "<ESC>'<O<ESC>'>o<ESC>gv", 'Surround Selection' }
 keymaps.normal["++"] = { "gcc", 'Comment Line' }
 keymaps.visual["++"] = { "gc", 'Comment Selection' }
 
-keymaps.normal['C'] = { 'cc<ESC>', '' }
-keymaps.normal['<M-v>'] = { '^v$', '' }
+keymaps.normal['C'] = { 'cc<ESC>', 'Clear current line' }
+keymaps.normal['<M-v>'] = { '^vg_', 'Select contents of current line' }
 
 -- }}}
 
