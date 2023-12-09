@@ -1,6 +1,6 @@
 local keymaps = require 'keymaps'.setup()
 
-keymaps.normal['<space>R'] = { function ()
+keymaps.normal['<space>R'] = { function()
   require 'core'.reload()
 end, 'reload config' }
 
