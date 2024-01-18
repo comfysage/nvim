@@ -9,6 +9,7 @@ return Spec.colorscheme {
         search = { reverse = false, inc_reverse = true },
         types = { italic = true },
         keyword = { italic = false },
+        comment = { italic = true },
     },
     overrides = {},
   }
