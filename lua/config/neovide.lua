@@ -1,4 +1,4 @@
-vim.o.guifont = "Maple Mono:h9"
+vim.o.guifont = "Maple Mono:h11"
 vim.opt.linespace = 1
 vim.g.neovide_padding_top = 1
 vim.g.neovide_padding_bottom = 1
