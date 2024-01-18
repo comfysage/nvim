@@ -58,5 +58,12 @@ return {
       vim.api.nvim_set_hl(0, v[1], { fg = v[2] })
       vim.api.nvim_set_hl(0, v[1] .. 'Note', { fg = v[2], reverse = true })
     end
+
+    local hl_groups = {
+      NvimTreeGitDirty = { fg = core.lib.hl:get('ui', 'focus') },
+    }
+    for name, v in pairs(hl_groups) do
+      vim.api.nvim_set_hl(0, name, v)
+    end
   end
 }
