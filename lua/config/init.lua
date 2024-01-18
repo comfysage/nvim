@@ -15,6 +15,7 @@ return {
           scrolloff = 5,
           use_ripgrep = true,
           treesitter_folds = false,
+          loaded_plugins = {'netrw'},
         }
       },
       {
