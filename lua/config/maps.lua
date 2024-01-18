@@ -73,6 +73,8 @@ keymaps.normal["sv"] = { "<C-w>v", 'Split Window Vertically' }
 keymaps.normal["sh"] = { "<Cmd>sp<CR>", 'Split Window Horizontally' }
 keymaps.normal["sq"] = { "<C-w>q", 'Quit Current Window' }
 
+-- nmap <silent> <space>w :vs<CR>:wincmd l<CR>:RangerWorkingDirectory<CR>
+
 
 -- Split Navigation {{{
 
