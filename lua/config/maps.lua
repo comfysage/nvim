@@ -22,6 +22,38 @@ Keymap.group {
   { 'insert', '<c-s>', vim.cmd.update, 'save file' },
 }
 
+keymaps.normal[',s'] = {
+  function()
+    ---@type table<integer, {name: string}>
+    local clients = vim.lsp.get_clients { bufnr = 0 }
+    local null = {}
+    local lsp = {}
+    for _, client in ipairs(clients) do
+      if client.name == 'null-ls' then
+        null[#null + 1] = client.name
+      else
+        lsp[#lsp + 1] = client.name
+      end
+    end
+
+    local client = nil
+    if #null > 0 then
+      client = null[1]
+    else
+      client = lsp[1]
+    end
+    if client then
+      vim.notify(
+        ('formatting current file with "%s"'):format(client),
+        vim.log.levels.INFO
+      )
+      vim.lsp.buf.format { async = true, name = client }
+    end
+  end,
+  'format file',
+  group = 'file',
+}
+
 keymaps.normal[';'] = { 'viw', '' }
 -- nnoremap <C-d> <ESC>viw
 -- inoremap <C-d> <ESC>viw
