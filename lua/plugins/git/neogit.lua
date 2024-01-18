@@ -5,7 +5,6 @@ return {
     "nvim-lua/plenary.nvim",         -- required
     "nvim-telescope/telescope.nvim", -- optional
     "sindrets/diffview.nvim",        -- optional
-    "ibhagwan/fzf-lua",              -- optional
   },
   opts = {},
   config = function (_, opts)
@@ -14,12 +13,12 @@ return {
 
     neogit.setup(opts)
 
-    keymaps.normal['<space>sf'] = { function ()
+    keymaps.normal['<space>sgf'] = { function ()
       require 'neogit'.open { kind = "vsplit" }
-    end }
-    keymaps.normal['<space>sc'] = { function ()
+    end, 'show git status', group = 'git' }
+    keymaps.normal['<space>sgc'] = { function ()
       require 'neogit'.open { "commit", kind = "vsplit" }
-    end }
+    end, 'show git commit window', group = 'git' }
 
     vim.api.nvim_create_autocmd({ 'WinEnter' }, {
       pattern = { 'NeogitStatus' },
