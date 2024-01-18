@@ -58,6 +58,12 @@ return {
         opts = 'config.highlights',
       },
       {
+        'treesitter',
+        opts = {
+          ensure_installed = { 'bash', 'rust', 'go' },
+        },
+      },
+      {
         'telescope',
         event = 'UIEnter',
         opts = {
