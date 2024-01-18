@@ -186,7 +186,7 @@ return {
     lazy = true,
     config = function()
       require 'sayama'.setup {
-        dir = ENV('KITCHEN') .. '/pan/code-examples'
+        dir = ENV('HOME') .. '/dev/code-examples'
       }
     end
   },

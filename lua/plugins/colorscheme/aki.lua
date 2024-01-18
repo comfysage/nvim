@@ -1,6 +1,6 @@
-return {
+return Spec.colorscheme {
   'crispybaccoon/aki',
-  dir = ENV('KITCHEN') .. '/pan/aki',
+  dir = ENV('HOME') .. '/dev/aki',
   opts = {
     theme = "default",
     override_terminal = true,
