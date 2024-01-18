@@ -82,6 +82,10 @@ return {
 
       so.setup(opts)
 
+      core.lib.hl.apply {
+        SymbolsOutlineConnector = { link = '@ibl.indent.char.1' },
+      }
+
       keymaps.normal['<space>st'] = { so.toggle_outline, "toggle symbols outline", group = "show_ui" }
     end
   },
