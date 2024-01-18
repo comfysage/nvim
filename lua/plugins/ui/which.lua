@@ -15,6 +15,16 @@ return {
       if not status then return end
 
       which.setup(opts)
+
+      which.register({
+        ['.'] = { name = 'toggle' },
+        [','] = { name = 'edit' },
+        ['<leader>'] = {
+          f = { name = 'find' },
+          s = { name = 'show' },
+          g = { name = 'go' },
+        },
+      })
     end
   }
 }
