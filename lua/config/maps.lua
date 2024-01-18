@@ -12,16 +12,7 @@ keymaps.visual['<leader>s'] = { "<Cmd>'<,'>source<CR>", 'Source File Segment' }
 keymaps.normal['<C-s>'] = { vim.cmd.update, 'Save File' }
 keymaps.insert['<C-s>'] = { vim.cmd.update, 'Save File' }
 
--- Ranger
-keymaps.normal['<leader>f'] = { '<cmd>Ranger<CR>', 'Open Ranger' }
-keymaps.normal['<leader>g'] = { '<cmd>RangerNewTab<CR>', 'Open Ranger in a New Tab' }
-keymaps.normal['<space>r'] = { '<cmd>RangerTree<CR>', 'Open RangerTree' }
-
-Keymap.group {
-  group = 'file',
-  { 'normal', '<c-s>', vim.cmd.update, 'save file' },
-  { 'insert', '<c-s>', vim.cmd.update, 'save file' },
-}
+-- Basic Keybinds {{{
 
 keymaps.normal[';'] = { 'viw', '' }
 -- nnoremap <C-d> <ESC>viw
@@ -85,9 +76,6 @@ keymaps.normal["s/"] = { "<Cmd>SubstituteSelection<CR>", 'Substitute Last Select
 keymaps.normal["sv"] = { "<C-w>v", 'Split Window Vertically' }
 keymaps.normal["sh"] = { "<Cmd>sp<CR>", 'Split Window Horizontally' }
 keymaps.normal["sq"] = { "<C-w>q", 'Quit Current Window' }
-
-keymaps.normal["<C-\\>"] = { ":vs<CR>:wincmd l<CR>", 'Split File Vertically' }
--- nmap <silent> <space>w :vs<CR>:wincmd l<CR>:RangerWorkingDirectory<CR>
 
 
 -- Split Navigation {{{
