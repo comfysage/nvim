@@ -29,7 +29,7 @@ vim.api.nvim_create_autocmd('UIEnter', {
   end
 })
 
-keymaps.normal['<leader>x'] = ':<C-U>call StripTrailingWhitespace()<CR>'
+keymaps.normal[',cx'] = { ':<C-U>call StripTrailingWhitespace()<CR>', 'strip trailing whitespace', group = 'file' }
 
 vim.cmd [[
 function! Get_visual_selection()
