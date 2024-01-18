@@ -9,10 +9,13 @@ keymaps.normal['<leader>s'] = { function()
   vim.notify('sourcing current file.', vim.log.levels.INFO)
 end, 'Source File' }
 keymaps.visual['<leader>s'] = { "<Cmd>'<,'>source<CR>", 'Source File Segment' }
-keymaps.normal['<C-s>'] = { vim.cmd.update, 'Save File' }
-keymaps.insert['<C-s>'] = { vim.cmd.update, 'Save File' }
 
 -- Basic Keybinds {{{
+Keymap.group {
+  group = 'file',
+  { 'normal', '<c-s>', vim.cmd.update, 'save file' },
+  { 'insert', '<c-s>', vim.cmd.update, 'save file' },
+}
 
 keymaps.normal[';'] = { 'viw', '' }
 -- nnoremap <C-d> <ESC>viw
