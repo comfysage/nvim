@@ -39,9 +39,6 @@ keymaps.normal[{ 'SPC', 's', 'q' }] =
   { ':copen<cr>', 'open qf list', group = 'qf_list' }
 
 
--- Invert NumberLine
-keymaps.normal['<leader>n'] = { ':set invnu<CR>', '' }
-
 -- vmap <leader>c "*y
 -- nmap <leader>v "*p
 
