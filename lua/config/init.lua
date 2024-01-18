@@ -38,6 +38,13 @@ return {
         }
       },
       {
+        'keymaps',
+        opts = {
+          leader = 'SPC',
+          localleader = ' m',
+        },
+      },
+      {
         'highlights',
         event = 'UIEnter',
         opts = 'config.highlights',
