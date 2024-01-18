@@ -1,4 +1,9 @@
-keymaps.normal['<space>sl'] = { function() require 'lazy'.home() end, 'Open Lazy' }
+keymaps.normal['<space>sll'] = {
+  function()
+    require('lazy').home()
+  end,
+  'Open Lazy',
+}
 
 keymaps.normal['<space>R'] = { function()
   require 'core'.reload()
