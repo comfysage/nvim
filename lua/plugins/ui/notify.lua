@@ -30,6 +30,6 @@ return {
   config = function (_, opts)
     require 'fidget'.setup (opts)
 
-    core.config.log_level = vim.log.levels.DEBUG
+    core.config.log_level = vim.env['DEV'] and vim.log.levels.DEBUG or vim.log.levels.INFO
   end
 }
