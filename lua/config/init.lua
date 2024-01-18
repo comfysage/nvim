@@ -76,6 +76,11 @@ return {
         },
       },
       {
+        'lsp',
+        event = 'UIEnter',
+        opts = 'config.lsp',
+      },
+      {
         'telescope',
         event = 'UIEnter',
         opts = {
