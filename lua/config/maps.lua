@@ -88,12 +88,6 @@ keymaps.normal['<space>l'] = { ':wincmd l<CR>', '' }
 
 -- }}}
 
--- tab navigation
-keymaps.normal["<TAB>"] = { vim.cmd.tabnext, 'Next Tab' }
-keymaps.normal["<S-TAB>"] = { vim.cmd.tabprev, 'Prev Tab' }
-
-keymaps.normal["<space><TAB>"] = { ":$tabedit<CR>", 'Open New Tab' }
-
 -- smoothie
 vim.g.smoothie_enabled = true
 vim.g.smoothie_no_default_mappings = true
