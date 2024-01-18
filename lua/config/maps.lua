@@ -5,14 +5,20 @@ keymaps.normal['<space>sll'] = {
   'Open Lazy',
 }
 
-keymaps.normal['<space>R'] = { function()
-  require 'core'.reload()
-end, 'reload config' }
+keymaps.normal['<space>R'] = {
+  function()
+    require('core').reload()
+  end,
+  'reload config',
+}
 
-keymaps.normal['<leader>s'] = { function()
-  vim.cmd.source '%'
-  vim.notify('sourcing current file.', vim.log.levels.INFO)
-end, 'Source File' }
+keymaps.normal['<leader>s'] = {
+  function()
+    vim.cmd.source '%'
+    vim.notify('sourcing current file.', vim.log.levels.INFO)
+  end,
+  'Source File',
+}
 keymaps.visual['<leader>s'] = { "<Cmd>'<,'>source<CR>", 'Source File Segment' }
 
 -- Basic Keybinds {{{
@@ -95,10 +101,11 @@ Keymap.group {
 -- keymaps.normal['<M-F>'] = { '<cmd>!prettygo %<CR>', 'Format Current Document' }
 
 -- Surround Selection
-keymaps.visual["o"] = { "<ESC>'<O<ESC>'>o<ESC>gv", 'Surround Selection' }
+keymaps.visual['o'] = { "<ESC>'<O<ESC>'>o<ESC>gv", 'Surround Selection' }
 
 keymaps.normal['C'] = { 'cc<ESC>', 'Clear current line' }
-keymaps.normal['<M-v>'] = { '^vg_', 'Select contents of current line' }
+keymaps.normal['<M-v>'] =
+  { '^vg_', 'Select contents of current line', group = 'selection' }
 
 -- Move through wrapping lines {{{
 
@@ -109,19 +116,21 @@ vim.cmd [[ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k') ]]
 -- }}}
 
 -- toggle statusline
-keymaps.normal["<space><ESC>"] = { "<Cmd>ToggleStatusLine<CR>", 'Toggle statusline' }
+keymaps.normal['<space><ESC>'] =
+  { '<Cmd>ToggleStatusLine<CR>', 'Toggle statusline' }
 
 require 'config.better-s'
 
-keymaps.normal["s/"] = { "<Cmd>SubstituteSelection<CR>", 'Substitute Last Selection' }
+keymaps.normal['s/'] =
+  { '<Cmd>SubstituteSelection<CR>', 'Substitute Last Selection' }
 
 -- create splits
-keymaps.normal["sq"] = { "<C-w>q", 'Quit Current Window' }
 Keymap.group {
   group = 'windows',
   { 'normal', 'sv', ':vsp<cr>', 'split window vertically' },
   { 'normal', 'sh', ':sp<cr>', 'split window horizontally' },
 }
+keymaps.normal['sq'] = { '<C-w>q', 'Quit Current Window' }
 
 -- nmap <silent> <space>w :vs<CR>:wincmd l<CR>:RangerWorkingDirectory<CR>
 
@@ -144,32 +153,70 @@ keymaps.normal['<space>l'] = { ':wincmd l<CR>', '' }
 vim.g.smoothie_enabled = true
 vim.g.smoothie_no_default_mappings = true
 if vim.g.smoothie_enabled then
-  keymaps.normal["<C-J>"] = { '<cmd>call smoothie#do("\\<C-D>") <CR>', 'Scroll Down', { overwrite = true } }
-  keymaps.normal["<C-K>"] = { '<cmd>call smoothie#do("\\<C-U>") <CR>', 'Scroll Up', { overwrite = true } }
-  keymaps.normal["zz"] = { '<cmd>call smoothie#do("zz") <CR>', 'Center window', { overwrite = true } }
-  keymaps.normal["zt"] = { '<cmd>call smoothie#do("zt") <CR>', 'Align cursor to top', { overwrite = true } }
-  keymaps.normal["zb"] = { '<cmd>call smoothie#do("zb") <CR>', 'Align cursor to bottom', { overwrite = true } }
-  keymaps.normal["gg"] = { '<cmd>call smoothie#do("gg") <CR>', 'Scroll to top of file', { overwrite = true } }
-  keymaps.normal["G"] = { '<cmd>call smoothie#do("G") <CR>', 'Scroll to bottom of file', { overwrite = true } }
+  keymaps.normal['<S-down>'] = {
+    '<cmd>call smoothie#do("\\<C-D>") <CR>',
+    'Scroll Down',
+    { overwrite = true },
+  }
+  keymaps.normal['<S-up>'] = {
+    '<cmd>call smoothie#do("\\<C-U>") <CR>',
+    'Scroll Up',
+    { overwrite = true },
+  }
+  keymaps.normal['zz'] = {
+    '<cmd>call smoothie#do("zz") <CR>',
+    'Center window',
+    { overwrite = true },
+  }
+  keymaps.normal['zt'] = {
+    '<cmd>call smoothie#do("zt") <CR>',
+    'Align cursor to top',
+    { overwrite = true },
+  }
+  keymaps.normal['zb'] = {
+    '<cmd>call smoothie#do("zb") <CR>',
+    'Align cursor to bottom',
+    { overwrite = true },
+  }
+  keymaps.normal['gg'] = {
+    '<cmd>call smoothie#do("gg") <CR>',
+    'Scroll to top of file',
+    { overwrite = true },
+  }
+  keymaps.normal['G'] = {
+    '<cmd>call smoothie#do("G") <CR>',
+    'Scroll to bottom of file',
+    { overwrite = true },
+  }
 end
 
 if vim.g.smoothie_enabled then
-  keymaps.normal["ss"] = { '<cmd>call smoothie#do("zz") <CR>', 'Center window', { remap = false } }
-  keymaps.normal["sa"] = { '<cmd>call smoothie#do("zt") <CR>', 'Align cursor to top', { remap = false } }
-  keymaps.normal["sd"] = { '<cmd>call smoothie#do("zb") <CR>', 'Align cursor to bottom', { remap = false } }
+  keymaps.normal['ss'] =
+    { '<cmd>call smoothie#do("zz") <CR>', 'Center window', { remap = false } }
+  keymaps.normal['sa'] = {
+    '<cmd>call smoothie#do("zt") <CR>',
+    'Align cursor to top',
+    { remap = false },
+  }
+  keymaps.normal['sd'] = {
+    '<cmd>call smoothie#do("zb") <CR>',
+    'Align cursor to bottom',
+    { remap = false },
+  }
 else
-  keymaps.normal["ss"] = { "zz", 'Center window', { remap = false } }
-  keymaps.normal["sa"] = { "zt", 'Align cursor to top', { remap = false } }
-  keymaps.normal["sd"] = { "zb", 'Align cursor to bottom', { remap = false } }
+  keymaps.normal['ss'] = { 'zz', 'Center window', { remap = false } }
+  keymaps.normal['sa'] = { 'zt', 'Align cursor to top', { remap = false } }
+  keymaps.normal['sd'] = { 'zb', 'Align cursor to bottom', { remap = false } }
 end
 
-keymaps.normal["gcu"] = { "yyp^wv$hr-", 'Underline Comment' }
+keymaps.normal['gcu'] = { 'yyp^wv$hr-', 'Underline Comment' }
 
 -- netrw
--- bind { "<space>n", "<cmd>20Lex!<CR>" }
-keymaps.normal["<space>n"] = { "<cmd>to 20vs .<cr>", 'Open Tree' }
+-- keymaps.normal["<space>n"] = { "<cmd>20Lex!<CR>", 'Open Tree' }
+keymaps.normal['<space>n'] = { '<cmd>to 20vs .<cr>', 'Open Tree' }
 
 local _, status = pcall(require, 'telescope')
 if status then
-  keymaps.normal["<space>t"] = { "<cmd>Telescope<CR>", group = 'Telescope', "Telescope" }
+  keymaps.normal['<space>t'] =
+    { '<cmd>Telescope<CR>', group = 'Telescope', 'Telescope' }
 end
