@@ -132,8 +132,8 @@ Keymap.group {
 }
 keymaps.normal['sq'] = { '<C-w>q', 'Quit Current Window' }
 
--- nmap <silent> <space>w :vs<CR>:wincmd l<CR>:RangerWorkingDirectory<CR>
-
+keymaps.normal[{ 'SPC', 'e' }] =
+  { '<Cmd>bo 20sp +term<CR>', 'Open Terminal Pane' }
 
 -- Split Navigation {{{
 
