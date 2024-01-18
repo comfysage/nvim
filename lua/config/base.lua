@@ -57,6 +57,15 @@ require 'core.plugin.command'.create {
   end,
 }
 
+require 'core.plugin.command'.create {
+  name = 'ToASCII', fn = function(_)
+    local select = vim.fn.Get_visual_selection()
+    local convert = require 'config._ascii'
+    local ascii = convert(select)
+    vim.paste(ascii, -1)
+  end,
+}
+
 -- netrw
 vim.g.netrw_liststyle = 3
 vim.cmd [[hi! link netrwTreeBar NonText]]
