@@ -45,6 +45,9 @@ keymaps.normal[{ 'SPC', 's', 'q' }] =
 -- Move Selected Line up and down
 -- nnoremap J <Cmd>move +1<CR>
 -- nnoremap K <Cmd>move -2<CR>
+keymaps.visual['J'] = { ":move '>+1<CR>gv-gv", 'Move line down' }
+keymaps.visual['K'] = { ":move '<-2<CR>gv-gv", 'Move line up' }
+
 Keymap.group {
   group = 'editing',
   { 'visual', 'J', ":move '>+1<CR>gv-gv", 'Move line down' },
