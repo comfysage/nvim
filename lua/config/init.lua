@@ -130,11 +130,6 @@ return {
         event = nil,
       },
       {
-        'plugins',
-        event = nil,
-        reload = false,
-      },
-      {
         'highlights',
         event = 'UIEnter',
       },
