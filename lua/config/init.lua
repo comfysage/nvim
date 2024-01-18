@@ -70,6 +70,12 @@ return {
         },
       },
       {
+        'cmp',
+        opts = {
+          completion_style = 'tab',
+        },
+      },
+      {
         'telescope',
         event = 'UIEnter',
         opts = {
