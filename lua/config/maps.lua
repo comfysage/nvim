@@ -116,9 +116,12 @@ require 'config.better-s'
 keymaps.normal["s/"] = { "<Cmd>SubstituteSelection<CR>", 'Substitute Last Selection' }
 
 -- create splits
-keymaps.normal["sv"] = { "<C-w>v", 'Split Window Vertically' }
-keymaps.normal["sh"] = { "<Cmd>sp<CR>", 'Split Window Horizontally' }
 keymaps.normal["sq"] = { "<C-w>q", 'Quit Current Window' }
+Keymap.group {
+  group = 'windows',
+  { 'normal', 'sv', ':vsp<cr>', 'split window vertically' },
+  { 'normal', 'sh', ':sp<cr>', 'split window horizontally' },
+}
 
 -- nmap <silent> <space>w :vs<CR>:wincmd l<CR>:RangerWorkingDirectory<CR>
 
