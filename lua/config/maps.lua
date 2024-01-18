@@ -30,11 +30,12 @@ Keymap.group {
 }
 --nmap <space><space> <ESC>:<BACKSPACE>zz
 
--- quick fix list
-keymaps.normal['<c-n>'] = { ':cnext<cr>', 'goto next item in qf list' }
-keymaps.normal['<c-b>'] = { ':cprev<cr>', 'goto prev item in qf list' }
+keymaps.normal[{ 'SPC', 's', 'q' }] =
+  { ':copen<cr>', 'open qf list', group = 'qf_list' }
 
-keymaps.normal['.'] = '<nop>'
+
+-- Invert NumberLine
+keymaps.normal['<leader>n'] = { ':set invnu<CR>', '' }
 
 -- vmap <leader>c "*y
 -- nmap <leader>v "*p
