@@ -1,5 +1,3 @@
-local keymaps = require 'keymaps'.setup()
-
 keymaps.normal['<space>sl'] = { function() require 'lazy'.home() end, 'Open Lazy' }
 
 keymaps.normal['<space>R'] = { function()
