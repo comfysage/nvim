@@ -113,9 +113,6 @@ return {
             [[   ▝██████████▛ ]],
             [[    ▝▀▀▀▀▀▀▀▀▀  ]],
           },
-          buttons = {
-            { 'find files', 'SPC SPC', function() require 'core.plugin.telescope'.picker.find_files() end },
-          },
         },
       },
     },
