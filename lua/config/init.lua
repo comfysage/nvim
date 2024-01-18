@@ -64,6 +64,12 @@ return {
         },
       },
       {
+        'luasnip',
+        opts = {
+          import_languages = { 'rust', 'go', 'lua', 'c', 'cpp', 'html', 'js', 'bash' },
+        },
+      },
+      {
         'telescope',
         event = 'UIEnter',
         opts = {
