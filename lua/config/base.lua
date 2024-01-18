@@ -46,14 +46,16 @@ function! Get_visual_selection()
 endfunction
 ]]
 
-vim.api.nvim_create_user_command('SubstituteSelection', function (_)
-  local select = vim.fn.Get_visual_selection()
-  vim.ui.input({ prompt = "replace `".. select .."` with >" }, function (input)
-    if not input then return end
-    vim.cmd("%s/"..select.."/"..input.."/g")
-    vim.cmd('norm ``')
-  end)
-end, {})
+require 'core.plugin.command'.create {
+  name = 'SubstituteSelection', fn = function(_)
+    local select = vim.fn.Get_visual_selection()
+    vim.ui.input({ prompt = "replace `".. select .."` with >" }, function(input)
+      if not input then return end
+      vim.cmd("%s/"..select.."/"..input.."/g")
+      vim.cmd('norm ``')
+    end)
+  end,
+}
 
 -- netrw
 vim.g.netrw_liststyle = 3
