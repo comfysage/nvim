@@ -85,6 +85,7 @@ return {
         event = 'UIEnter',
         opts = {
           use_fzf = true,
+          theme = 'main',
           config = {},
         },
       },
