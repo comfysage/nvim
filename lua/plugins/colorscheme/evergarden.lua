@@ -13,4 +13,7 @@ return Spec.colorscheme {
     },
     overrides = {},
   }
+  config = function(_, opts)
+    require 'evergarden'.setup(opts)
+  end
 }
