@@ -1,24 +1,7 @@
 -- config.init
 return {
   colorscheme = 'evergarden',
-  transparent_background = true,
-  transparent_fn = {
-    evergarden = function(t)
-      _G.evergarden_config.transparent_background = t
-    end,
-    aurora = function(t)
-      _G.aurora_config.transparent_background = t
-    end,
-    aki = function(t)
-      _G.aki_config.transparent_background = t
-    end,
-    adachi = function(t)
-      _G.adachi_config.transparent_background = t
-    end,
-    gruvboxed = function(t)
-      _G.gruvboxed_config.transparent_background = t
-    end,
-  },
+  transparent_background = false,
   config_module = 'config',
   modules = {
     ['core'] = {
