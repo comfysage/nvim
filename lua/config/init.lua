@@ -10,6 +10,7 @@ return {
         event = nil,
         opts = {
           cursorline = false,
+          number = true,
           tab_width = 2,
           scrolloff = 5,
           use_ripgrep = true,
