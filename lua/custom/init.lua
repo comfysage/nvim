@@ -2,7 +2,6 @@
 return {
   colorscheme = 'twilight-moon',
   transparent_background = false,
-  config_module = 'config',
   modules = {
     ['core'] = {
       {
@@ -55,7 +54,7 @@ return {
       {
         'highlights',
         event = 'UIEnter',
-        opts = 'config.highlights',
+        opts = 'custom.highlights',
       },
       {
         'treesitter',
@@ -78,7 +77,7 @@ return {
       {
         'lsp',
         event = 'UIEnter',
-        opts = 'config.lsp',
+        opts = 'custom.lsp',
       },
       {
         'telescope',
@@ -117,10 +116,10 @@ return {
       },
       {
         'mini',
-        opts = 'config.lib',
+        opts = 'custom.lib',
       },
     },
-    ['config'] = {
+    ['custom'] = {
       {
         'options',
         event = nil,

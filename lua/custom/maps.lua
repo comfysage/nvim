@@ -119,7 +119,7 @@ vim.cmd [[ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k') ]]
 keymaps.normal['<space><ESC>'] =
   { '<Cmd>ToggleStatusLine<CR>', 'Toggle statusline' }
 
-require 'config.better-s'
+require 'custom.better-s'
 
 keymaps.normal['s/'] =
   { '<Cmd>SubstituteSelection<CR>', 'Substitute Last Selection' }
