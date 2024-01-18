@@ -150,8 +150,6 @@ keymaps.normal['<space>l'] = { ':wincmd l<CR>', '' }
 -- }}}
 
 -- smoothie
-vim.g.smoothie_enabled = true
-vim.g.smoothie_no_default_mappings = true
 if vim.g.smoothie_enabled then
   keymaps.normal['<S-down>'] = {
     '<cmd>call smoothie#do("\\<C-D>") <CR>',
