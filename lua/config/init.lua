@@ -45,6 +45,14 @@ return {
         },
       },
       {
+        'ui',
+        opts = {
+          general = {
+            colorscheme = 'everforest',
+          },
+        },
+      },
+      {
         'highlights',
         event = 'UIEnter',
         opts = 'config.highlights',
