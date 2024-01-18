@@ -30,7 +30,7 @@ vim.api.nvim_create_user_command('SynStack', function()
   vim.cmd('echohl ' .. hl .. ' | echo "' .. hl .. '" | echohl None')
 end, {})
 
-vim.keymap.set("n", "<leader>sp", ":call SynStack()<CR>")
+vim.keymap.set("n", "\\sp", ":call SynStack()<CR>")
 
 return {
   fix = function()
