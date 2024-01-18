@@ -67,5 +67,7 @@ require 'core.plugin.command'.create {
 }
 
 -- netrw
-vim.g.netrw_liststyle = 3
-vim.cmd [[hi! link netrwTreeBar NonText]]
+if vim.g.loaded_netrw == 0 then
+  vim.g.netrw_liststyle = 3
+  vim.cmd [[hi! link netrwTreeBar NonText]]
+end
