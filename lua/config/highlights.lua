@@ -55,8 +55,8 @@ return {
       failure = { "Failure", core.hl.diagnostic.error },
     }
     for _, v in pairs(groups) do
-      vim.api.nvim_set_hl(0, v[1], { fg = v[2].fg })
-      vim.api.nvim_set_hl(0, v[1] .. 'Note', { fg = v[2].fg, reverse = true })
+      vim.api.nvim_set_hl(0, v[1], { fg = v[2] })
+      vim.api.nvim_set_hl(0, v[1] .. 'Note', { fg = v[2], reverse = true })
     end
   end
 }
