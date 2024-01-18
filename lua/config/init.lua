@@ -1,6 +1,6 @@
 -- config.init
 return {
-  colorscheme = 'evergarden',
+  colorscheme = 'twilight-moon',
   transparent_background = false,
   config_module = 'config',
   modules = {
