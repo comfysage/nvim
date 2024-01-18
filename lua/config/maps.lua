@@ -54,8 +54,11 @@ Keymap.group {
   { 'visual', 'K', ":move '<-2<CR>gv-gv", 'Move line up' },
 }
 
-keymaps.normal[',f'] = { 'gg=G``:w<CR>', 'Fix indention in file' }
-keymaps.normal[',m'] = { '<Cmd>%norm! gww<CR>', 'Fix line length in file' }
+Keymap.group {
+  group = 'file',
+  { 'normal', ',f', 'gg=G``:w<CR>', 'Fix indention in file' },
+  { 'normal', ',m', '<Cmd>%norm! gww<CR>', 'Fix line length in file' },
+}
 
 -- keymaps.normal['<M-F>'] = { '<cmd>!prettygo %<CR>', 'Format Current Document' }
 
