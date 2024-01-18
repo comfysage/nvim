@@ -19,7 +19,11 @@ keymaps.normal['<leader>f'] = { '<cmd>Ranger<CR>', 'Open Ranger' }
 keymaps.normal['<leader>g'] = { '<cmd>RangerNewTab<CR>', 'Open Ranger in a New Tab' }
 keymaps.normal['<space>r'] = { '<cmd>RangerTree<CR>', 'Open RangerTree' }
 
--- Basic Keybinds {{{
+Keymap.group {
+  group = 'file',
+  { 'normal', '<c-s>', vim.cmd.update, 'save file' },
+  { 'insert', '<c-s>', vim.cmd.update, 'save file' },
+}
 
 keymaps.normal[';'] = { 'viw', '' }
 -- nnoremap <C-d> <ESC>viw
@@ -67,8 +71,6 @@ keymaps.visual["++"] = { "gc", 'Comment Selection' }
 keymaps.normal['C'] = { 'cc<ESC>', 'Clear current line' }
 keymaps.normal['<M-v>'] = { '^vg_', 'Select contents of current line' }
 
--- }}}
-
 -- Move through wrapping lines {{{
 
 -- j/k will move virtual (wrapping) lines.
@@ -89,12 +91,9 @@ keymaps.normal["sv"] = { "<C-w>v", 'Split Window Vertically' }
 keymaps.normal["sh"] = { "<Cmd>sp<CR>", 'Split Window Horizontally' }
 keymaps.normal["sq"] = { "<C-w>q", 'Quit Current Window' }
 
--- Split File {{{
-
 keymaps.normal["<C-\\>"] = { ":vs<CR>:wincmd l<CR>", 'Split File Vertically' }
 -- nmap <silent> <space>w :vs<CR>:wincmd l<CR>:RangerWorkingDirectory<CR>
 
--- }}}
 
 -- Split Navigation {{{
 
