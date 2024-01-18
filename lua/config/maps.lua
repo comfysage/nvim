@@ -36,12 +36,11 @@ keymaps.normal['.'] = '<nop>'
 -- Move Selected Line up and down
 -- nnoremap J <Cmd>move +1<CR>
 -- nnoremap K <Cmd>move -2<CR>
-keymaps.visual['J'] = { ":move '>+1<CR>gv-gv", 'Move line down' }
-keymaps.visual['K'] = { ":move '<-2<CR>gv-gv", 'Move line up' }
-
--- < and > indents
-keymaps.visual['<'] = { "<gv", 'Decrease indention' }
-keymaps.visual['>'] = { ">gv", 'Increase indention' }
+Keymap.group {
+  group = 'editing',
+  { 'visual', 'J', ":move '>+1<CR>gv-gv", 'Move line down' },
+  { 'visual', 'K', ":move '<-2<CR>gv-gv", 'Move line up' },
+}
 
 keymaps.normal[',f'] = { 'gg=G``:w<CR>', 'Fix indention in file' }
 keymaps.normal[',m'] = { '<Cmd>%norm! gww<CR>', 'Fix line length in file' }
