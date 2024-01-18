@@ -39,11 +39,11 @@ local vjoin = function(args, sub)
   return str
 end
 
-local createRg = function(args)
+local create_regex = function(args)
   return '\\(' .. vjoin(args, '\\|') .. '\\)'
 end
 
-local paired = createRg({ '(', ')', '{', '}', '\\[', '\\]' })
+local paired = create_regex({ '(', ')', '{', '}', '\\[', '\\]' })
 
-keymaps.normal["sfl"] = { function() vim.fn['search'](paired, 'Ws') end, 'Goto next scope', { remap = false } }
-keymaps.normal["sfh"] = { function() vim.fn['search'](paired, 'Wsb') end, 'Goto previous scope', { remap = false } }
+keymaps.normal["sfl"] = { function() vim.fn['search'](paired, 'Ws') end, 'goto next scope', { remap = false } }
+keymaps.normal["sfh"] = { function() vim.fn['search'](paired, 'Wsb') end, 'goto previous scope', { remap = false } }
