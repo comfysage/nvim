@@ -90,6 +90,15 @@ return {
         },
       },
       {
+        'lualine',
+        event = 'UIEnter',
+        opts = {
+          options = {
+            separators = 'round',
+          },
+        },
+      },
+      {
         'dash',
         opts = {
           open_on_startup = true,
