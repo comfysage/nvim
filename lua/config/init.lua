@@ -115,6 +115,10 @@ return {
           },
         },
       },
+      {
+        'mini',
+        opts = 'config.lib',
+      },
     },
     ['config'] = {
       {
