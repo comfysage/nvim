@@ -2,6 +2,18 @@ return {
   mappings = {
     show_lsp_info = '<space>si',
   },
+  signature = {
+    enabled = true,
+    window = {
+      height = 20,
+      width = 64,
+      border = 'none',
+    },
+  },
+  diagnostic_lines = {
+    enabled = true,
+    severity = vim.diagnostic.severity.WARN,
+  },
   servers = {
     denols = function(nvim_lsp)
       return {
