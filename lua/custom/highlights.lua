@@ -40,9 +40,12 @@ return {
       local alpha = function()
         return string.format("%x", math.floor(255 * vim.g.transparency or 0.0))
       end
-      local bg_color = '#' .. vim.api.nvim_get_hl(0, { name = 'Normal' }).bg
+      local _bg = vim.api.nvim_get_hl(0, { name = 'Normal' }).bg
+      if _bg then
+        local bg_color = '#' .. _bg
 
-      vim.g.neovide_background_color = bg_color .. alpha()
+        vim.g.neovide_background_color = bg_color .. alpha()
+      end
     end
 
     -- notes
