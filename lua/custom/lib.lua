@@ -86,14 +86,14 @@ return {
     hipatterns = {
       opts = {
         groups = {
-          fixme = { { "FIX", "FIXME" }, "Fixme" },
-          warn = { { "WARN", "WARNING" }, "Fixme" },
-          perf = { { "PERF", "OPTIM", "PERFORMANCE", "OPTIMIZE" }, "Fixme" },
-          todo = { { "TODO" }, "Todo" },
-          note = { { "NOTE", "INFO" }, "Note" },
-          test = { { "TEST", "TESTING" }, "Todo" },
-          test_passed = { { "PASSED" }, "Success" },
-          test_failed = { { "FAILED" }, "Failure" },
+          fixme = { { "FIX", "FIXME" }, "@comment.fix" },
+          warn = { { "WARN", "WARNING" }, "@comment.warning" },
+          perf = { { "PERF", "OPTIM", "PERFORMANCE", "OPTIMIZE" }, "@comment.fix" },
+          todo = { { "TODO" }, "@comment.todo" },
+          note = { { "NOTE", "INFO" }, "@comment.note" },
+          test = { { "TEST", "TESTING" }, "@comment.todo" },
+          test_passed = { { "PASSED" }, "healthSucces" },
+          test_failed = { { "FAILED" }, "healthError" },
         },
       },
       config = function(hipatterns, opts)
@@ -106,7 +106,7 @@ return {
           local matches = v[1]
           for _, match in ipairs(matches) do
             highlighters[m .. '_' .. match] = { pattern = "%f[%w]()" .. match .. "()%f[%W]", group = higroup }
-            highlighters['note_' .. m .. '_' .. match] = { pattern = "[[]!*" .. match .. "[]]", group = higroup .. "Note" }
+            highlighters['note_' .. m .. '_' .. match] = { pattern = "[[]!*" .. match .. "[]]", group = higroup .. ".emphasis" }
           end
         end
         hipatterns.setup {
