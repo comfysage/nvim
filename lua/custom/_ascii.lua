@@ -119,7 +119,7 @@ return function(str)
   }
 
   for _, char in ipairs(_str) do
-    local match = map[char]
+    local match = map[char:lower()]
     if not match then
       match = map[' ']
     end
