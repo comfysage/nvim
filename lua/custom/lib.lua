@@ -98,7 +98,7 @@ return {
       },
       config = function(hipatterns, opts)
         local highlighters = {
-          -- Highlight hex color strings (`#rrggbb`) using that color
+          -- [!NOTE] highlight hex color strings (`#rrggbb`) using that color
           hex_color = hipatterns.gen_highlighter.hex_color(),
         }
         for m, v in pairs(opts.groups) do
