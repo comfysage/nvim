@@ -51,15 +51,15 @@ return {
     -- notes
 
     local groups = {
-      fixme   = { "Fixme", core.hl.diagnostic.warn },
-      todo    = { "Todo", core.hl.diagnostic.info },
-      note    = { "Note", core.hl.diagnostic.hint },
-      success = { "Success", core.hl.diagnostic.ok },
-      failure = { "Failure", core.hl.diagnostic.error },
+      fixme   = { "@comment.fix", core.hl.diagnostic.warn },
+      todo    = { "@comment.todo", core.hl.diagnostic.info },
+      note    = { "@comment.note", core.hl.diagnostic.hint },
+      success = { "healthSuccess", core.hl.diagnostic.ok },
+      failure = { "healthError", core.hl.diagnostic.error },
     }
     for _, v in pairs(groups) do
       vim.api.nvim_set_hl(0, v[1], { fg = v[2] })
-      vim.api.nvim_set_hl(0, v[1] .. 'Note', { fg = v[2], reverse = true })
+      vim.api.nvim_set_hl(0, v[1] .. '.emphasis', { fg = v[2], reverse = true })
     end
 
     local hl_groups = {
