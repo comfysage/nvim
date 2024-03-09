@@ -54,6 +54,17 @@ return {
         },
       },
       {
+        'lazy',
+        opts = {
+          config = {
+            dev = {
+              path = "~/dev",
+              fallback = true,
+            },
+          },
+        },
+      },
+      {
         'highlights',
         event = 'UIEnter',
         opts = 'custom.highlights',
