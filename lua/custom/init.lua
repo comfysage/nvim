@@ -28,11 +28,6 @@ return {
             { { '*.vto', '*.njk' }, '[Template Engine] set filetype html', function()
               vim.bo.filetype = 'html'
             end },
-            { { '*' }, 'Use `q` to quit qf list', function(opts)
-              if vim.bo[opts.buf].filetype == 'qf' then
-                vim.keymap.set('n', 'q', ':quit<cr>', { buffer = opts.buf })
-              end
-            end },
           },
         }
       },

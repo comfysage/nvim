@@ -1,3 +1,12 @@
+-- Use `q` to quit qf list
+core.lib.autocmd.create {
+  event = 'BufWinEnter',
+  fn = function (ev)
+    if vim.bo[ev.buf].filetype == 'qf' then
+      vim.keymap.set('n', 'q', ':quit<cr>', { buffer = ev.buf })
+    end
+  end,
+}
 
 -- RPC Server
 
