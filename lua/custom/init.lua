@@ -28,6 +28,12 @@ return {
             { { '*.vto', '*.njk' }, '[Template Engine] set filetype html', function()
               vim.bo.filetype = 'html'
             end },
+            { { '*.json' }, 'adjust conceal level', function(opts)
+              vim.api.nvim_buf_call(opts.buf, function ()
+                local win = vim.api.nvim_get_current_win()
+                vim.wo[win].conceallevel = 1
+              end)
+            end },
           },
         }
       },
