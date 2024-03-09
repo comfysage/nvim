@@ -1,20 +1,20 @@
 return {
-  'lukas-reineke/indent-blankline.nvim',
+  'lukas-reineke/indent-blankline.nvim', event = 'BufAdd',
   opts = {
     indent = {
       highlight = {
-        "IndentBlanklineIndent1",
-        "IndentBlanklineIndent2",
-        "IndentBlanklineIndent3",
-        "IndentBlanklineIndent4",
-        "IndentBlanklineIndent5",
-        "IndentBlanklineIndent6",
-        "IndentBlanklineIndent7",
-        "IndentBlanklineIndent8",
-        "IndentBlanklineIndent9",
-        "IndentBlanklineIndent10",
-        "IndentBlanklineIndent11",
-        "IndentBlanklineIndent12",
+        "@ibl.indent.char.1",
+        "@ibl.indent.char.2",
+        "@ibl.indent.char.3",
+        "@ibl.indent.char.4",
+        "@ibl.indent.char.5",
+        "@ibl.indent.char.6",
+        "@ibl.indent.char.7",
+        "@ibl.indent.char.8",
+        "@ibl.indent.char.9",
+        "@ibl.indent.char.10",
+        "@ibl.indent.char.11",
+        "@ibl.indent.char.12",
       }
     },
     scope = {
