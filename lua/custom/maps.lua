@@ -60,7 +60,8 @@ keymaps.normal[',s'] = {
   group = 'file',
 }
 
-keymaps.normal[';'] = { 'viw', '' }
+vim.keymap.set('o', ';', 'iw', { desc = 'select inside word' })
+vim.keymap.set('v', ';', 'iw', { desc = 'select inside word' })
 -- nnoremap <C-d> <ESC>viw
 -- inoremap <C-d> <ESC>viw
 
