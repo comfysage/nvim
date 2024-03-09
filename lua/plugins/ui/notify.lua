@@ -1,5 +1,5 @@
 return {
-  'j-hui/fidget.nvim',
+  'j-hui/fidget.nvim', event = 'UIEnter',
   opts = {
     notification = {
       override_vim_notify = true,
