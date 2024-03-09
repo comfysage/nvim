@@ -1,8 +1,5 @@
--- config.init
+-- custom.init
 return {
-  colorscheme = 'twilight-moon',
-  transparent_background = false,
-  modules = {
     ['core'] = {
       {
         'options',
@@ -151,5 +148,4 @@ return {
         event = 'UIEnter',
       },
     },
-  },
 }
