@@ -124,7 +124,7 @@ return {
         event = nil,
       },
       {
-        'highlights',
+        'config.highlights',
         event = 'UIEnter',
       },
       {
