@@ -73,6 +73,7 @@ return {
         'cmp',
         opts = {
           completion_style = 'tab',
+          menu_style = 'nyoom',
         },
       },
       {
