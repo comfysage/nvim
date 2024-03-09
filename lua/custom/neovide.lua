@@ -13,9 +13,8 @@ vim.g.neovide_hide_mouse_when_typing = true
 -- █▄█ █▀█ █▄▄ █░█ █▄█ █▀▄ █▄█ █▄█ █░▀█ █▄▀
 
 vim.g.neovide_theme = 'dark'
-vim.g.neovide_transparency = 0.9
-vim.g.transparency = 1
-vim.g.neovide_background_color = '#1d2021'
+vim.g.neovide_transparency = 1
+vim.g.transparency = 0
 
 ---@diagnostic disable-next-line: undefined-global, undefined-field, inject-field
 core.config.transparent_background = false
