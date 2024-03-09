@@ -37,10 +37,6 @@ return {
         single_file_support = false,
       }
     end,
-    zk = {
-      filetypes = { 'markdown' },
-      settings = {}
-    },
     lua_ls = {},
   },
 }

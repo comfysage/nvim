@@ -95,6 +95,7 @@ return {
   { 'tpope/vim-markdown', ft = 'markdown' },
   {
     'mickael-menu/zk-nvim',
+    ft = 'markdown',
     opts = {
       -- can be "telescope", "fzf" or "select" (`vim.ui.select`)
       -- it's recommended to use "telescope" or "fzf"
@@ -119,7 +120,6 @@ return {
     config = function(_, opts)
       require 'zk'.setup(opts)
     end,
-    ft = 'markdown'
   },
 
   -- { 'junegunn/goyo.vim',      ft = 'markdown' },
