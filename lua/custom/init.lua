@@ -49,6 +49,7 @@ return {
         opts = {
           general = {
             colorscheme = 'everforest',
+            devicons = false,
           },
         },
       },
