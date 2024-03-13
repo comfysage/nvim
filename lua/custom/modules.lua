@@ -50,7 +50,7 @@ return {
       'keymaps',
       opts = {
         leader = 'SPC',
-        localleader = ' m',
+        localleader = 'm',
       },
     },
     {
