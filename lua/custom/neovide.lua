@@ -17,7 +17,7 @@ vim.g.neovide_transparency = 1
 vim.g.transparency = 0
 
 ---@diagnostic disable-next-line: undefined-global, undefined-field, inject-field
-core.config.transparent_background = false
+core.config.ui.transparent_background = false
 
 vim.api.nvim_create_autocmd({ 'UIEnter', 'ColorScheme' }, {
   callback = function ()
