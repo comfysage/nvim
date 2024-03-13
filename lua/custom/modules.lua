@@ -55,12 +55,7 @@ return {
     },
     {
       'ui',
-      opts = {
-        general = {
-          colorscheme = 'everforest',
-          devicons = false,
-        },
-      },
+      opts = { },
     },
     {
       'lazy',
@@ -153,11 +148,11 @@ return {
   },
   ['custom'] = {
     {
-      'options',
+      'config.options',
       event = nil,
     },
     {
-      'base',
+      'config.base',
       event = nil,
     },
     {
@@ -165,7 +160,7 @@ return {
       event = 'UIEnter',
     },
     {
-      'maps',
+      'config.maps',
       event = 'UIEnter',
     },
   },

@@ -1,3 +1,9 @@
+vim.filetype.add({
+    extension = {
+        norg = "norg",
+    },
+})
+
 -- Use `q` to quit qf list
 core.lib.autocmd.create {
   event = 'BufWinEnter',
@@ -8,7 +14,8 @@ core.lib.autocmd.create {
   end,
 }
 
--- RPC Server
+-- █▀█ █▀█ █▀▀
+-- █▀▄ █▀▀ █▄▄
 
 local is_server = function()
   local sl = vim.fn.serverlist()

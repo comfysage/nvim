@@ -21,7 +21,6 @@ keymaps.normal['<leader>s'] = {
 }
 keymaps.visual['<leader>s'] = { "<Cmd>'<,'>source<CR>", 'Source File Segment' }
 
--- Basic Keybinds {{{
 Keymap.group {
   group = 'file',
   { 'normal', '<c-s>', vim.cmd.update, 'save file' },
@@ -60,6 +59,9 @@ keymaps.normal[',s'] = {
   group = 'file',
 }
 
+keymaps.normal[';'] = { function()
+  vim.notify('use `v;`', vim.log.levels.WARN)
+end, '' }
 vim.keymap.set('o', ';', 'iw', { desc = 'select inside word' })
 vim.keymap.set('v', ';', 'iw', { desc = 'select inside word' })
 -- nnoremap <C-d> <ESC>viw
@@ -68,18 +70,25 @@ vim.keymap.set('v', ';', 'iw', { desc = 'select inside word' })
 Keymap.group {
   group = 'movement',
   { 'normal', 'W', 'g_', 'goto last non empty of line' },
-  { 'normal', 'B', '^', 'goto first non empty of line' },
+  { 'normal', 'B', '^',  'goto first non empty of line' },
   { 'visual', 'W', 'g_', 'goto last non empty of line' },
-  { 'visual', 'B', '^', 'goto first non empty of line' },
+  { 'visual', 'B', '^',  'goto first non empty of line' },
 }
 --nmap <space><space> <ESC>:<BACKSPACE>zz
 
-keymaps.normal[{ 'SPC', 's', 'q' }] =
-  { ':copen<cr>', 'open qf list', group = 'qf_list' }
-
+keymaps.normal[{ 'SPC', 's', 'q' }] = { function()
+  if core.lib.options:enabled 'trouble' then
+    return ':lua require("trouble").toggle("quickfix")<cr>'
+  else
+    return ':copen<cr>'
+  end
+end , 'open qf list', group = 'qf_list', { expr = true } }
 
 -- vmap <leader>c "*y
 -- nmap <leader>v "*p
+
+keymaps.normal['<S-up>'] = { '<nop>', 'disable shift movement' }
+keymaps.normal['<S-down>'] = { '<nop>', 'disable shift movement' }
 
 -- Move Selected Line up and down
 -- nnoremap J <Cmd>move +1<CR>
@@ -95,7 +104,7 @@ Keymap.group {
 
 Keymap.group {
   group = 'file',
-  { 'normal', ',f', 'gg=G``:w<CR>', 'Fix indention in file' },
+  { 'normal', ',f', 'gg=G``:w<CR>',        'Fix indention in file' },
   { 'normal', ',m', '<Cmd>%norm! gww<CR>', 'Fix line length in file' },
 }
 
@@ -104,9 +113,9 @@ Keymap.group {
 -- Surround Selection
 keymaps.visual['o'] = { "<ESC>'<O<ESC>'>o<ESC>gv", 'Surround Selection' }
 
-keymaps.normal['C'] = { 'cc<ESC>', 'Clear current line' }
+keymaps.normal['D'] = { '0d$', 'clear current line' }
 keymaps.normal['<M-v>'] =
-  { '^vg_', 'Select contents of current line', group = 'selection' }
+{ '^vg_', 'Select contents of current line', group = 'selection' }
 
 -- Move through wrapping lines {{{
 
@@ -118,37 +127,36 @@ vim.cmd [[ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k') ]]
 
 -- toggle statusline
 keymaps.normal['<space><ESC>'] =
-  { '<Cmd>ToggleStatusLine<CR>', 'Toggle statusline' }
+{ '<Cmd>ToggleStatusLine<CR>', 'Toggle statusline' }
 
 require 'custom.better-s'
 
 keymaps.normal['s/'] =
-  { '<Cmd>SubstituteSelection<CR>', 'Substitute Last Selection' }
+{ '<Cmd>SubstituteSelection<CR>', 'Substitute Last Selection' }
 
 -- create splits
 Keymap.group {
   group = 'windows',
   { 'normal', 'sv', ':vsp<cr>', 'split window vertically' },
-  { 'normal', 'sh', ':sp<cr>', 'split window horizontally' },
+  { 'normal', 'sh', ':sp<cr>',  'split window horizontally' },
 }
 keymaps.normal['sq'] = { '<C-w>q', 'Quit Current Window' }
 
 keymaps.normal[{ 'SPC', 'e' }] =
-  { '<Cmd>bo 20sp +term<CR>', 'Open Terminal Pane' }
+{ '<Cmd>bo 20sp +term<CR>', 'Open Terminal Pane' }
 
--- Split Navigation {{{
+Keymap.group {
+  group = 'windows',
+  { 'normal',  '<space><Left>',   ':wincmd h<CR>', '' },
+  { 'normal',  '<space><Down>',   ':wincmd j<CR>', '' },
+  { 'normal',  '<space><Up>',     ':wincmd k<CR>', '' },
+  { 'normal',  '<space><Right>',  ':wincmd l<CR>', '' },
 
-keymaps.normal['<space><Left>'] = { ':wincmd h<CR>', '' }
-keymaps.normal['<space><Down>'] = { ':wincmd j<CR>', '' }
-keymaps.normal['<space><Up>'] = { ':wincmd k<CR>', '' }
-keymaps.normal['<space><Right>'] = { ':wincmd l<CR>', '' }
-
-keymaps.normal['<space>h'] = { ':wincmd h<CR>', '' }
-keymaps.normal['<space>j'] = { ':wincmd j<CR>', '' }
-keymaps.normal['<space>k'] = { ':wincmd k<CR>', '' }
-keymaps.normal['<space>l'] = { ':wincmd l<CR>', '' }
-
--- }}}
+  { 'normal',  '<space>h',        ':wincmd h<CR>', '' },
+  { 'normal',  '<space>j',        ':wincmd j<CR>', '' },
+  { 'normal',  '<space>k',        ':wincmd k<CR>', '' },
+  { 'normal',  '<space>l',        ':wincmd l<CR>', '' },
+}
 
 -- smoothie
 if vim.g.smoothie_enabled then
@@ -191,7 +199,7 @@ end
 
 if vim.g.smoothie_enabled then
   keymaps.normal['ss'] =
-    { '<cmd>call smoothie#do("zz") <CR>', 'Center window', { remap = false } }
+  { '<cmd>call smoothie#do("zz") <CR>', 'Center window', { remap = false } }
   keymaps.normal['sa'] = {
     '<cmd>call smoothie#do("zt") <CR>',
     'Align cursor to top',
@@ -212,10 +220,12 @@ keymaps.normal['gcu'] = { 'yyp^wv$hr-', 'Underline Comment' }
 
 -- netrw
 -- keymaps.normal["<space>n"] = { "<cmd>20Lex!<CR>", 'Open Tree' }
-keymaps.normal['<space>n'] = { '<cmd>to 20vs .<cr>', 'Open Tree' }
+keymaps.normal['<space>n'] = { '<cmd>to 40vs .<cr>', 'Open Tree' }
 
-local _, status = pcall(require, 'telescope')
-if status then
-  keymaps.normal['<space>t'] =
-    { '<cmd>Telescope<CR>', group = 'Telescope', 'Telescope' }
+local _, ok = pcall(require, 'telescope')
+if ok then
+  keymaps.normal['<space>T'] =
+  { function()
+    require 'telescope.builtin'.builtin()
+  end, group = 'Telescope', 'Telescope' }
 end
