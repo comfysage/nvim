@@ -76,7 +76,7 @@ require 'core.plugin.command'.create {
 require 'core.plugin.command'.create {
   name = 'ToASCII', fn = function(_)
     local select = vim.fn.Get_visual_selection()
-    local convert = require 'custom._ascii'
+    local convert = require 'custom.plugin.ascii'
     local ascii = convert(select)
     vim.paste(ascii, -1)
   end,
