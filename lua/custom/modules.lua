@@ -116,6 +116,46 @@ return {
       },
     },
     {
+      'null',
+      opts = {
+        sources = function(null)
+          return {
+            -- lua
+            null.builtins.formatting.stylua,
+
+            -- lint
+            null.builtins.diagnostics.editorconfig_checker,
+
+            -- build system
+            null.builtins.diagnostics.checkmake,
+            null.builtins.diagnostics.cmake_lint,
+
+            -- git
+            null.builtins.diagnostics.commitlint,
+
+            -- format nix
+            null.builtins.formatting.alejandra,
+            -- prettier
+            null.builtins.formatting.prettier.with({
+              filetypes = { "css", "html", "json", "yaml", "markdown", "svelte" },
+            }),
+
+            -- format code blocks (markdown)
+            null.builtins.formatting.cbfmt,
+
+            -- ruby
+            null.builtins.diagnostics.rubocop,
+            null.builtins.formatting.rubocop,
+
+            -- clang
+            null.builtins.formatting.clang_format.with({
+              filetypes = { "c", "cpp", "cs", "java" },
+            })
+          }
+        end,
+      }
+    },
+    {
       'lualine',
       event = 'UIEnter',
       opts = {
