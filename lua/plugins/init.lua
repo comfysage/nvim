@@ -136,7 +136,7 @@ return {
 
   {
     'crispybaccoon/sayama.nvim',
-    lazy = true,
+    event = 'BufAdd',
     config = function()
       require 'sayama'.setup {
         dir = ENV('HOME') .. '/dev/code-examples'
