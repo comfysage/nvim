@@ -69,14 +69,6 @@ Keymap.group {
 }
 --nmap <space><space> <ESC>:<BACKSPACE>zz
 
-keymaps.normal[{ 'SPC', 's', 'q' }] = { function()
-  if core.lib.options:enabled 'trouble' then
-    return ':lua require("trouble").toggle("quickfix")<cr>'
-  else
-    return ':copen<cr>'
-  end
-end , 'open qf list', group = 'qf_list', { expr = true } }
-
 -- vmap <leader>c "*y
 -- nmap <leader>v "*p
 
