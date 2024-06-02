@@ -99,8 +99,6 @@ Keymap.group {
 keymaps.visual['o'] = { "<ESC>'<O<ESC>'>o<ESC>gv", 'Surround Selection' }
 
 keymaps.normal['D'] = { '0d$', 'clear current line' }
-keymaps.normal['<M-v>'] =
-{ '^vg_', 'Select contents of current line', group = 'selection' }
 
 -- Move through wrapping lines {{{
 
