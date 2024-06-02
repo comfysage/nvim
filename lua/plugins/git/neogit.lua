@@ -20,11 +20,5 @@ return {
       require 'neogit'.open { "commit", kind = "vsplit" }
     end, 'show git commit window', group = 'git' }
 
-    vim.api.nvim_create_autocmd({ 'WinEnter' }, {
-      pattern = { 'NeogitStatus' },
-      callback = function ()
-        require 'neogit'.refresh_manually()
-      end
-    })
   end
 }
