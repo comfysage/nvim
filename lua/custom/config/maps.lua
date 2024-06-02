@@ -89,7 +89,7 @@ Keymap.group {
 
 Keymap.group {
   group = 'file',
-  { 'normal', ',f', 'gg=G``:w<CR>',        'Fix indention in file' },
+  { 'normal', ',ff', 'gg=G``:w<CR>',        'Fix indention in file' },
   { 'normal', ',m', '<Cmd>%norm! gww<CR>', 'Fix line length in file' },
 }
 
