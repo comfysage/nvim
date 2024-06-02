@@ -12,8 +12,5 @@ return Spec.colorscheme {
         comment = { italic = true },
     },
     overrides = {},
-  }
-  config = function(_, opts)
-    require 'evergarden'.setup(opts)
-  end
+  },
 }
