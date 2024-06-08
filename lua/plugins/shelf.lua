@@ -1,5 +1,5 @@
 return {
-  'crispybaccoon/shelf.nvim', dev = true,
+  'comfysage/shelf.nvim', dev = true,
   event = 'BufEnter',
   opts = {},
   config = function(_, opts)

@@ -135,7 +135,7 @@ return {
   -- 'folke/trouble.nvim',
 
   {
-    'crispybaccoon/sayama.nvim',
+    'comfysage/sayama.nvim',
     event = 'BufAdd',
     config = function()
       require 'sayama'.setup {
@@ -155,6 +155,6 @@ return {
   { 'catppuccin/nvim',             name = 'catppuccin', lazy = true },
   { 'joshdick/onedark.vim',        lazy = true },
   { 'cocopon/iceberg.vim',         lazy = true },
-  { 'crispybaccoon/fantastic.vim', lazy = true },
-  { 'crispybaccoon/dawn.vim',      lazy = true },
+  { 'comfysage/fantastic.vim', dev = true, lazy = true },
+  { 'comfysage/dawn.vim',      dev = true, lazy = true },
 }

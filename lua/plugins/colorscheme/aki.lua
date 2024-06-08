@@ -1,6 +1,5 @@
 return Spec.colorscheme {
-  'crispybaccoon/aki',
-  dir = ENV('HOME') .. '/dev/aki',
+  'comfysage/aki', dev = true,
   opts = {
     theme = "default",
     override_terminal = true,

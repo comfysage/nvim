@@ -1,6 +1,5 @@
 return Spec.colorscheme {
-  'crispybaccoon/aurora',
-  dir = ENV('HOME') .. '/dev/aurora',
+  'comfysage/aurora', dev = true,
   opts = {
     transparent_background = false,
     contrast_dark = 'medium',

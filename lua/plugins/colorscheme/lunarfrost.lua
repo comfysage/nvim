@@ -1,5 +1,5 @@
 return Spec.colorscheme {
-  'crispybaccoon/lunarfrost',
+  'comfysage/lunarfrost', dev = true,
   opts = {
     transparent_background = false,
     style = {},

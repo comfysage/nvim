@@ -1,6 +1,5 @@
 return Spec.colorscheme {
-  'crispybaccoon/twilight-moon',
-  dir = ENV('HOME') .. '/dev/twilight-moon',
+  'comfysage/twilight-moon', dev = true,
   opts = {
     transparent_background = false,
     contrast_dark = 'hard',

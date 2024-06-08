@@ -1,5 +1,5 @@
 return Spec.colorscheme {
-  'crispybaccoon/evergarden',
+  'comfysage/evergarden', dev = true,
   opts = {
     override_terminal = true,
     transparent_background = false,

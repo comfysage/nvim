@@ -1,6 +1,5 @@
 return Spec.colorscheme {
-  'crispybaccoon/gruvboxed',
-  dir = ENV('HOME') .. '/dev/gruvbox',
+  'comfysage/gruvboxed', dev = true,
   opts = {
     theme = "default",
     override_terminal = true,

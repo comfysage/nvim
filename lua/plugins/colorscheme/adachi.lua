@@ -1,6 +1,5 @@
 return Spec.colorscheme {
-  'crispybaccoon/adachi.nvim',
-  dir = ENV('HOME') .. '/dev/adachi',
+  'comfysage/adachi.nvim', dev = true,
   opts = {
     theme = "default",
     override_terminal = true,
