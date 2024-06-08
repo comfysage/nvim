@@ -59,7 +59,6 @@ return {
     end,
   },
 
-  { 'tpope/vim-markdown', ft = 'markdown' },
   {
     'mickael-menu/zk-nvim',
     ft = 'markdown',
