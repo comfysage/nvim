@@ -3,44 +3,13 @@ return {
   { import = 'plugins.git' },
   { import = 'plugins.ui' },
   { import = 'plugins.colorscheme' },
-  -- the plugin manager can manage itself
 
-  -- {
-  --   'francoiscabrol/ranger.vim',
-  --   dependencies = { 'rbgrouleff/bclose.vim' }
-  -- },
 
-  { 'junegunn/fzf',    build = ':call fzf#install()', lazy = true },
-  -- 'junegunn/fzf.vim',
+  { 'junegunn/fzf', build = ':call fzf#install()', lazy = true },
 
-  -- 'jiangmiao/auto-pairs',
-  --[[ {
-    'windwp/nvim-autopairs',
-    opts = {}
-  }, ]]
-  { 'antonk52/vim-tabber', lazy = true },
-  -- 'junegunn/vim-easy-align',
-  -- 'junegunn/vim-peekaboo',
-
-  -- { 'vim-airline/vim-airline' },
-  --[[ { 'akinsho/bufferline.nvim',
-  tag = "v3.*",
-  requires = 'nvim-tree/nvim-web-devicons' } ]]
-
-  -- 'ap/vim-css-color',
-  -- { 'norcalli/nvim-colorizer.lua', ft = { 'css', 'scss' } },
-
-  -- IDE
-  -- 'nvim-tree/nvim-web-devicons', -- Icons for Telescope
-
-  -- 'pangloss/vim-javascript',
-  -- {
-  --   'sindrets/diffview.nvim',
-  --   dependencies = 'nvim-lua/plenary.nvim'
-  -- },
-  -- 'ThePrimeagen/refactoring.nvim',
   {
     'simrat39/symbols-outline.nvim',
+    ft = { 'markdown' },
     opts = {
       position = 'left',
       preview_bg_highlight = 'PmenuSel',
@@ -76,8 +45,7 @@ return {
         Fragment = { icon = core.lib.icons.syntax.snippet, hl = "@constant" },
       },
     },
-    ft = { 'markdown' },
-    config = function (_, opts)
+    config = function(_, opts)
       local status, so = pcall(require, 'symbols-outline')
 
       so.setup(opts)
@@ -86,11 +54,10 @@ return {
         SymbolsOutlineConnector = { link = '@ibl.indent.char.1' },
       }
 
-      keymaps.normal['<space>st'] = { so.toggle_outline, "toggle symbols outline", group = "show_ui" }
-    end
+      keymaps.normal['<space>st'] =
+        { so.toggle_outline, 'toggle symbols outline', group = 'show_ui' }
+    end,
   },
-
-  -- 'elkowar/yuck.vim',
 
   { 'tpope/vim-markdown', ft = 'markdown' },
   {
@@ -113,26 +80,14 @@ return {
         -- automatically attach buffers in a zk notebook that match the given filetypes
         auto_attach = {
           enabled = true,
-          filetypes = { "markdown" },
+          filetypes = { 'markdown' },
         },
       },
     },
     config = function(_, opts)
-      require 'zk'.setup(opts)
+      require('zk').setup(opts)
     end,
   },
-
-  -- { 'junegunn/goyo.vim',      ft = 'markdown' },
-  -- { 'junegunn/limelight.vim', ft = 'markdown' },
-  -- 'folke/zen-mode.nvim',
-  -- 'folke/twilight.nvim',
-
-  -- Lua
-  -- { 'numToStr/Comment.nvim', name = 'commentary' },
-
-  -- LSP
-  -- 'glepnir/lspsaga.nvim',
-  -- 'folke/trouble.nvim',
 
   {
     'comfysage/sayama.nvim',
@@ -144,17 +99,13 @@ return {
     end
   },
 
-  { 'lewis6991/impatient.nvim', enabled = false },
+  -- colorschemes
 
-  -- Colorschemes
-
-  { 'sainnhe/everforest',          lazy = true },
-  { 'arcticicestudio/nord-vim',    lazy = true },
-
-  { 'sainnhe/gruvbox-material',    lazy = true },
-  { 'catppuccin/nvim',             name = 'catppuccin', lazy = true },
-  { 'joshdick/onedark.vim',        lazy = true },
-  { 'cocopon/iceberg.vim',         lazy = true },
+  { 'sainnhe/everforest', lazy = true },
+  { 'sainnhe/gruvbox-material', lazy = true },
+  { 'catppuccin/nvim', name = 'catppuccin', lazy = true },
+  { 'joshdick/onedark.vim', lazy = true },
+  { 'cocopon/iceberg.vim', lazy = true },
   { 'comfysage/fantastic.vim', dev = true, lazy = true },
-  { 'comfysage/dawn.vim',      dev = true, lazy = true },
+  { 'comfysage/dawn.vim', dev = true, lazy = true },
 }
