@@ -15,9 +15,11 @@ keymaps.normal['<leader>s'] = {
 keymaps.visual['<leader>s'] = { "<Cmd>'<,'>source<CR>", 'Source File Segment' }
 
 Keymap.group {
-  group = 'file',
-  { 'normal', '<c-s>', vim.cmd.update, 'save file' },
-  { 'insert', '<c-s>', vim.cmd.update, 'save file' },
+  group = 'windows',
+  { 'normal', '<leader>w=', function() vim.cmd [[ vert resize +5 ]] end, 'horizontally increase window size'},
+  { 'normal', '<leader>w-', function() vim.cmd [[ vert resize -5 ]] end, 'horizontally decrease window size'},
+  { 'normal', '<leader>w+', function() vim.cmd [[ resize +5 ]] end, 'vertically increase window size'},
+  { 'normal', '<leader>w_', function() vim.cmd [[ resize -5 ]] end, 'vertically decrease window size'},
 }
 
 keymaps.normal[',s'] = {
@@ -57,29 +59,10 @@ keymaps.normal[';'] = { function()
 end, '' }
 vim.keymap.set('o', ';', 'iw', { desc = 'select inside word' })
 vim.keymap.set('v', ';', 'iw', { desc = 'select inside word' })
--- nnoremap <C-d> <ESC>viw
--- inoremap <C-d> <ESC>viw
-
-Keymap.group {
-  group = 'movement',
-  { 'normal', 'W', 'g_', 'goto last non empty of line' },
-  { 'normal', 'B', '^',  'goto first non empty of line' },
-  { 'visual', 'W', 'g_', 'goto last non empty of line' },
-  { 'visual', 'B', '^',  'goto first non empty of line' },
-}
---nmap <space><space> <ESC>:<BACKSPACE>zz
-
--- vmap <leader>c "*y
--- nmap <leader>v "*p
-
-keymaps.normal['<S-up>'] = { '<nop>', 'disable shift movement' }
-keymaps.normal['<S-down>'] = { '<nop>', 'disable shift movement' }
 
 -- Move Selected Line up and down
 -- nnoremap J <Cmd>move +1<CR>
 -- nnoremap K <Cmd>move -2<CR>
-keymaps.visual['J'] = { ":move '>+1<CR>gv-gv", 'Move line down' }
-keymaps.visual['K'] = { ":move '<-2<CR>gv-gv", 'Move line up' }
 
 Keymap.group {
   group = 'editing',
@@ -93,20 +76,10 @@ Keymap.group {
   { 'normal', ',m', '<Cmd>%norm! gww<CR>', 'Fix line length in file' },
 }
 
--- keymaps.normal['<M-F>'] = { '<cmd>!prettygo %<CR>', 'Format Current Document' }
-
 -- Surround Selection
 keymaps.visual['o'] = { "<ESC>'<O<ESC>'>o<ESC>gv", 'Surround Selection' }
 
 keymaps.normal['D'] = { '0d$', 'clear current line' }
-
--- Move through wrapping lines {{{
-
--- j/k will move virtual (wrapping) lines.
-vim.cmd [[ noremap <silent> <expr> j (v:count == 0 ? 'gj' : 'j') ]]
-vim.cmd [[ noremap <silent> <expr> k (v:count == 0 ? 'gk' : 'k') ]]
-
--- }}}
 
 -- toggle statusline
 keymaps.normal['<space><ESC>'] =
@@ -124,9 +97,6 @@ Keymap.group {
   { 'normal', 'sh', ':sp<cr>',  'split window horizontally' },
 }
 keymaps.normal['sq'] = { '<C-w>q', 'Quit Current Window' }
-
-keymaps.normal[{ 'SPC', 'e' }] =
-{ '<Cmd>bo 20sp +term<CR>', 'Open Terminal Pane' }
 
 Keymap.group {
   group = 'windows',
@@ -198,8 +168,6 @@ else
   keymaps.normal['sa'] = { 'zt', 'Align cursor to top', { remap = false } }
   keymaps.normal['sd'] = { 'zb', 'Align cursor to bottom', { remap = false } }
 end
-
-keymaps.normal['gcu'] = { 'yyp^wv$hr-', 'Underline Comment' }
 
 -- netrw
 -- keymaps.normal["<space>n"] = { "<cmd>20Lex!<CR>", 'Open Tree' }
