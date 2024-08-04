@@ -1,4 +1,4 @@
--- custom.chairc
+-- custom.config
 return {
   ui = {
     colorscheme = 'evergarden',

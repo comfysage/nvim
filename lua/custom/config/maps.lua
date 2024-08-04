@@ -1,6 +1,6 @@
 keymaps.normal['<space>R'] = {
   function()
-    require('core').reload()
+    require('ch').reload()
   end,
   'reload config',
 }
